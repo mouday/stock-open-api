@@ -1,0 +1,7 @@
+-r production.txt
+
+setuptools
+wheel
+twine
+pytest
+packaging
