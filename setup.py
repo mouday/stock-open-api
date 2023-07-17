@@ -74,7 +74,7 @@ setup(
     author='Peng Shiyu',
     author_email='pengshiyuyx@gmail.com',
     license='MIT',
-    url="https://github.com/mouday/stock-api",
+    url="https://github.com/mouday/stock-open-api",
 
     long_description=long_description,
     long_description_content_type='text/markdown',

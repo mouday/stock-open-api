@@ -1,8 +1,11 @@
-# Stock Api
+# Stock Open Api
 
 股票数据接口
 
 数据来自网上公开数据，仅做学习交流使用，不可用于商业用途
+
+- github: [https://github.com/mouday/stock-open-api](https://github.com/mouday/stock-open-api)
+- pypi: [https://pypi.org/project/stock-open-api/](https://pypi.org/project/stock-open-api/)
 
 ## 安装
 
