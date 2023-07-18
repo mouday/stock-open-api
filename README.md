@@ -1,5 +1,9 @@
 # Stock Open Api
 
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/domain-admin)](https://pypi.org/project/domain-admin)
+[![PyPI](https://img.shields.io/pypi/v/domain-admin.svg)](https://pypi.org/project/domain-admin)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/domain-admin?label=pypi%20downloads)](https://pypi.org/project/domain-admin)
+
 股票数据接口
 
 数据来自网上公开数据，仅做学习交流使用，不可用于商业用途
