@@ -6,11 +6,9 @@
 """
 import json
 
-import requests
-
 from stock_open_api.api.eastmoney import hk_stock_config
 from stock_open_api.items.list_item import ListItem
-from stock_open_api.utils import time_util
+from stock_open_api.utils import time_util, request_util
 
 
 def get_list(page=1, size=20):
@@ -61,7 +59,7 @@ def get_list(page=1, size=20):
         '_': time_util.get_timespan_13()
     }
 
-    res = requests.get(url, params, headers=hk_stock_config.headers)
+    res = request_util.get(url, params, headers=hk_stock_config.headers)
 
     data = res.json()
 
@@ -77,7 +75,8 @@ def get_list(page=1, size=20):
 
         for map_item in hk_stock_config.list_key_map:
             item[map_item['title']] = row.get(map_item['key'])
-            items.append(item)
+
+        items.append(item)
 
     list_item.items = items
     return list_item
@@ -105,7 +104,9 @@ def get_org_profile(code):
     """
     公司资料
     http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&type=web&color=w#/CompanyProfile
-    :param code: str
+
+    :param code: str eg: 00491
+
     :return:
     {
       "证券代码": "00491.HK",
@@ -145,7 +146,7 @@ def get_org_profile(code):
         'v': '05607491999280683',
     }
 
-    res = requests.get(url, params, headers=hk_stock_config.headers)
+    res = request_util.get(url, params)
 
     data = res.json()['result']['data'][0]
 
@@ -164,7 +165,9 @@ def get_security_info(code):
     """
     证券资料
     http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&type=web&color=w#/CompanyProfile
-    :param code: str
+
+    :param code: str  eg: 00491
+
     :return:
     {
       "证券代码": "00491.HK",
@@ -195,7 +198,7 @@ def get_security_info(code):
         'v': '05299608968630529',
     }
 
-    res = requests.get(url, params, headers=hk_stock_config.headers)
+    res = request_util.get(url, params)
 
     data = res.json()['result']['data'][0]
 

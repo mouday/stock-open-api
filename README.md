@@ -16,7 +16,8 @@ pip install stock-open-api
 ## 使用示例
 
 - 约定：所有接口数据都放在`api` 子包下
-- 命名规则：`/api/数据源/子类数据源.获取数据的方法名`
+- 命名规则：`api/数据源/数据源子分类.方法名`
+- 返回数据：字典的键以页面上显示的名称为准
 
 如下获取`上海证券交易所`为数据源的的股票公司概况
 
@@ -81,7 +82,19 @@ if __name__ == '__main__':
 
 | 数据 | 方法名 |
 | - | - | 
-| [港股列表](http://www.sse.com.cn/assortment/stock/list/info/company/index.shtml?COMPANY_CODE=688001) | api/eastmoney/hk_stock.get_list |
-| [港股列表迭代器](http://www.sse.com.cn/assortment/stock/list/info/company/index.shtml?COMPANY_CODE=688001) | api/eastmoney/hk_stock.get_list_iter |
-| [公司资料](http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&type=web&color=w#/CompanyProfile) | api/eastmoney/hk_stock.get_org_profile |
-| [证券资料](http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&type=web&color=w#/CompanyProfile) | api/eastmoney/hk_stock.get_security_info |
+| [港股-列表](http://www.sse.com.cn/assortment/stock/list/info/company/index.shtml?COMPANY_CODE=688001) | api/eastmoney/hk_stock.get_list |
+| [港股-列表迭代器](http://www.sse.com.cn/assortment/stock/list/info/company/index.shtml?COMPANY_CODE=688001) | api/eastmoney/hk_stock.get_list_iter |
+| [港股-公司资料](http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&type=web&color=w#/CompanyProfile) | api/eastmoney/hk_stock.get_org_profile |
+| [港股-证券资料](http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&type=web&color=w#/CompanyProfile) | api/eastmoney/hk_stock.get_security_info |
+| [中国概念股-列表](http://quote.eastmoney.com/center/gridlist.html#us_chinese) | api/eastmoney/us_chinese_stock.get_list |
+| [中国概念股-列表迭代器](http://quote.eastmoney.com/center/gridlist.html#us_chinese) | api/eastmoney/us_chinese_stock.get_list_iter |
+| [中国概念股-公司资料](http://emweb.eastmoney.com/PC_USF10/pages/index.html?code=PWM&type=web&color=w#/gsgk/gszl) | api/eastmoney/us_chinese_stock.get_org_profile |
+| [中国概念股-证券资料](http://emweb.eastmoney.com/PC_USF10/pages/index.html?code=PWM&type=web&color=w#/gsgk/zqzl) | api/eastmoney/us_chinese_stock.get_security_info |
+| [科创板-列表](http://quote.eastmoney.com/center/gridlist.html#kcb_board) | api/eastmoney/kcb_stock.get_list |
+| [科创板-列表迭代器](http://quote.eastmoney.com/center/gridlist.html#kcb_board) | api/eastmoney/kcb_stock.get_list_iter |
+| [科创板-基本资料+发行相关](http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&code=sh603801) | api/eastmoney/kcb_stock.get_company_info |
+| [新三板-列表](http://quote.eastmoney.com/center/gridlist.html#neeq_stocks) | api/eastmoney/neeq_stock.get_list |
+| [新三板-列表迭代器](http://quote.eastmoney.com/center/gridlist.html#neeq_stocks) | api/eastmoney/neeq_stock.get_list_iter |
+| [新三板-公司资料+证券资料](http://xinsanban.eastmoney.com/F10/CompanyInfo/Introduction/839499.html) | api/eastmoney/neeq_stock.get_company_info |
+| [A股-基本资料+发行相关](http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&code=sh603801) | api/eastmoney/company.get_company_info |
+| [深圳A股-基本资料+发行相关](http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&code=sh603801) | api/eastmoney/sz_stock.get_company_info |

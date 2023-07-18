@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-@File    : hk_stocks_config.py
+@File    : us_chinese_stock_config.py
 @Date    : 2023-07-17
+中国概念股相关接口
 """
-
-# 配置数据
-# http://quote.eastmoney.com/center/js/gridlist.js
-# 港股--全部
 
 list_key_map = [
     {
@@ -19,9 +16,8 @@ list_key_map = [
         "key": "f14",
         "name": "Name"
     },
-
     {
-        "title": "最新价",
+        "title": "最新价(美元)",
         "key": "f2",
         "name": "Close"
     },
@@ -36,36 +32,35 @@ list_key_map = [
         "name": "ChangePercent"
     },
     {
-        "title": "今开",
+        "title": "开盘价",
         "key": "f17",
         "name": "Open"
     },
     {
-        "title": "最高",
+        "title": "最高价",
         "key": "f15",
         "name": "Hign"
     },
     {
-        "title": "最低",
+        "title": "最低价",
         "key": "f16",
         "name": "Low"
     },
     {
-        "title": "昨收",
+        "title": "昨收价",
         "key": "f18",
         "name": "PreviousClose"
     },
     {
-        "title": "成交量(股)",
-        "key": "f5",
-        "name": "Volume"
+        "title": "总市值(美元)",
+        "key": "f20",
     },
     {
-        "title": "成交额",
-        "key": "f6",
-        "name": "Amount"
+        "title": "市盈率",
+        "key": "f115",
     }
 ]
+
 
 # 公司资料
 org_profile_key_map = [
@@ -75,22 +70,22 @@ org_profile_key_map = [
     },
     {
         "title": "公司名称",
-        "key": "ORG_NAME",
-    },
-    {
-        "title": "英文名称",
         "key": "ORG_EN_ABBR",
     },
     {
-        "title": "注册地",
-        "key": "REG_PLACE",
+        "title": "中文名称",
+        "key": "ORG_NAME",
     },
+    # {
+    #     "title": "注册地",
+    #     "key": "REG_PLACE",
+    # },
     {
         "title": "注册地址",
         "key": "REG_ADDRESS",
     },
     {
-        "title": "公司成立日期",
+        "title": "成立日期",
         "key": "FOUND_DATE",
     },
     {
@@ -98,12 +93,8 @@ org_profile_key_map = [
         "key": "BELONG_INDUSTRY",
     },
     {
-        "title": "董事长",
+        "title": "主席",
         "key": "CHAIRMAN",
-    },
-    {
-        "title": "公司秘书",
-        "key": "SECRETARY",
     },
     {
         "title": "员工人数",
@@ -121,20 +112,13 @@ org_profile_key_map = [
         "title": "E-MAIL",
         "key": "ORG_EMAIL",
     },
+
     {
-        "title": "年结日",
-        "key": "YEAR_SETTLE_DAY",
-    },
-    {
-        "title": "联系电话",
+        "title": "电话号码",
         "key": "ORG_TEL",
     },
     {
-        "title": "核数师",
-        "key": "ACCOUNT_FIRM",
-    },
-    {
-        "title": "传真",
+        "title": "传真号码",
         "key": "ORG_FAX",
     },
     {
@@ -147,12 +131,12 @@ org_profile_key_map = [
 security_info_key_map = [
     {
         "title": "证券代码",
-        "key": "SECUCODE",
+        "key": "SECURITY_CODE",
     },
-    {
-        "title": "证券简称",
-        "key": "SECURITY_NAME_ABBR",
-    },
+    # {
+    #     "title": "证券简称",
+    #     "key": "SECURITY_NAME_ABBR",
+    # },
     {
         "title": "上市日期",
         "key": "LISTING_DATE",
@@ -162,27 +146,31 @@ security_info_key_map = [
         "key": "SECURITY_TYPE",
     },
     {
-        "title": "交易所",
+        "title": "上市场所",
         "key": "TRADE_MARKET",
     },
+    # {
+    #     "title": "板块",
+    #     "key": "BOARD",
+    # },
+    # {
+    #     "title": "最新交易单位（每手股数）",
+    #     "key": "TRADE_UNIT",
+    # },
     {
-        "title": "板块",
-        "key": "BOARD",
-    },
-    {
-        "title": "最新交易单位（每手股数）",
-        "key": "TRADE_UNIT",
-    },
-    {
-        "title": "ISIN（国际证券识别编码）",
+        "title": "ISIN",
         "key": "ISIN_CODE",
     },
     {
-        "title": "是否沪港通标的",
-        "key": "GANGGUTONGBIAODIHU",
+        "title": "每股面值",
+        "key": "PAR_VALUE",
     },
     {
-        "title": "是否深港通标的",
-        "key": "GANGGUTONGBIAODISHEN",
+        "title": "ADS折算比",
+        "key": "CONVERT_RATIO",
+    },
+    {
+        "title": "年结日",
+        "key": "YEAR_SETTLE_DAY",
     },
 ]

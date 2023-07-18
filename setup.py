@@ -42,7 +42,7 @@ rm -rf dist build *.egg-info \
 
 ## 下载测试
 安装测试
-pip3 install -U stock-api -i https://pypi.org/simple
+pip3 install -U stock-open-api -i https://pypi.org/simple
 
 打包的用的setup必须引入
 

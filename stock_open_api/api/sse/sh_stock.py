@@ -6,9 +6,10 @@ sh_stock.py
 import json
 import re
 import time
-import requests
 
 from stock_open_api.api.sse import sh_stock_config
+from stock_open_api.log import logger
+from stock_open_api.utils import request_util
 
 
 def get_company_info(stock_code):
@@ -19,6 +20,7 @@ def get_company_info(stock_code):
         eg: http://www.sse.com.cn/assortment/stock/list/info/company/index.shtml?COMPANY_CODE=688001
 
     :param stock_code: eg 688001
+
     :return:
     {
       "公司代码": "688001",
@@ -59,7 +61,9 @@ def get_company_info(stock_code):
     """
     url = "http://query.sse.com.cn/commonQuery.do"
     detail_url = f'http://www.sse.com.cn/assortment/stock/list/info/company/index.shtml?COMPANY_CODE={stock_code}'
-    # print('Referer', detail_url)
+    # print()
+
+    logger.debug('Referer: %s', detail_url)
 
     params = {
         'jsonCallBack': 'jsonpCallback22015',
@@ -80,7 +84,7 @@ def get_company_info(stock_code):
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36',
     }
 
-    response = requests.get(url, params, headers=headers)
+    response = request_util.get(url, params, headers=headers)
 
     ret = re.match("jsonpCallback22015\((.*)\)", response.text)
     data = json.loads(ret.group(1))['result'][0]
@@ -93,4 +97,4 @@ def get_company_info(stock_code):
 
 
 if __name__ == '__main__':
-    print(json.dumps(get_company_info(688001), indent=2, ensure_ascii=False))
+    print(json.dumps(get_company_info(688627), indent=2, ensure_ascii=False))
