@@ -145,7 +145,7 @@ def get_company_info(code):
     base_url = "http://xinsanban.eastmoney.com/F10/CompanyInfo/Introduction/{code}.html"
     url = base_url.format(code=code)
 
-    response = request_util.get(url, headers=hk_stock_config.headers)
+    response = request_util.get(url)
 
     sel = Selector(text=response.text)
     security_info = sel.css("#security_info li")

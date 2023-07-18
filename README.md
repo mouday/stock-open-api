@@ -72,13 +72,13 @@ if __name__ == '__main__':
 
 ## 已实现整合数据
 
-数据源：上海证券交易所
+数据源：上海证券交易所 [www.sse.com.cn](http://www.sse.com.cn/)
 
 | 数据 | 方法名 |
 | - | - | 
 | [公司概况](http://www.sse.com.cn/assortment/stock/list/info/company/index.shtml?COMPANY_CODE=688001) | api/sse/sh_stock.get_company_info |
 
-数据源：东方财富
+数据源：东方财富 [www.eastmoney.com](https://www.eastmoney.com/)
 
 | 数据 | 方法名 |
 | - | - | 

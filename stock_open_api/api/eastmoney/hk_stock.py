@@ -59,7 +59,7 @@ def get_list(page=1, size=20):
         '_': time_util.get_timespan_13()
     }
 
-    res = request_util.get(url, params, headers=hk_stock_config.headers)
+    res = request_util.get(url, params)
 
     data = res.json()
 
