@@ -12,8 +12,7 @@ build:
 
 # 清空打包产物
 clean:
-	rm -rf temp logs .pytest_cache
-	rm -rf dist build *.egg-info
+	rm -rf dist build *.egg-info .pytest_cache
 
 # 上传打包产物到 pypi
 upload:

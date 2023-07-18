@@ -102,3 +102,7 @@ if __name__ == '__main__':
 | [新三板-公司资料+证券资料](http://xinsanban.eastmoney.com/F10/CompanyInfo/Introduction/839499.html) | api/eastmoney/neeq_stock.get_company_info |
 | [A股-基本资料+发行相关](http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&code=sh603801) | api/eastmoney/company.get_company_info |
 | [深圳A股-基本资料+发行相关](http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&code=sh603801) | api/eastmoney/sz_stock.get_company_info |
+
+## 升级记录 
+ 
+[CHANGELOG.md](https://github.com/mouday/stock-open-api/blob/master/CHANGELOG.md)
