@@ -1,8 +1,8 @@
 # Stock Open Api
 
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/domain-admin)](https://pypi.org/project/domain-admin)
-[![PyPI](https://img.shields.io/pypi/v/domain-admin.svg)](https://pypi.org/project/domain-admin)
-[![PyPI - Downloads](https://img.shields.io/pypi/dm/domain-admin?label=pypi%20downloads)](https://pypi.org/project/domain-admin)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/stock-open-api)](https://pypi.org/project/stock-open-api)
+[![PyPI](https://img.shields.io/pypi/v/stock-open-api.svg)](https://pypi.org/project/stock-open-api)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/stock-open-api?label=pypi%20downloads)](https://pypi.org/project/stock-open-api)
 
 股票数据接口
 
