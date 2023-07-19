@@ -92,24 +92,6 @@ def get_list(page=1, size=20):
     return list_item
 
 
-def get_list_iter(size=100):
-    """
-    科创板 列表迭代器
-    :param size: int
-    :return:
-    """
-    page = 0
-
-    while True:
-        page += 1
-
-        data = get_list(page, size)
-        if len(data.items) == 0:
-            break
-
-        yield data
-
-
 def get_company_info(code):
     """
     科创板 公司 基本资料 | 发行相关
