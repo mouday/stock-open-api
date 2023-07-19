@@ -2,8 +2,10 @@
 """
 @File    : hk_stock.py
 @Date    : 2023-07-17
+
 港股相关接口
 """
+
 import json
 
 from stock_open_api.api.eastmoney import hk_stock_config
@@ -12,15 +14,20 @@ from stock_open_api.utils import time_util, request_util
 
 
 def get_list(page=1, size=20):
-    """
-    港股列表
+    """港股行情列表
+
     东方财富网 > 行情中心 > 港股市场 > 全部港股
     http://quote.eastmoney.com/center/gridlist.html#hk_stocks
 
-    :param page: int
-    :param size: int
+    :param page: 分页
+    :type page: int
+    :param size: 分页大小
+    :type size: int
 
-    :return: ListItem
+    :return: 港股行情列表
+    :rtype: ListItem
+
+    >>> get_list()
     {
       "total": 4587,
       "items": [
@@ -82,27 +89,10 @@ def get_list(page=1, size=20):
     return list_item
 
 
-def get_list_iter(size=100):
-    """
-    列表迭代器
-    :param size: int
-    :return:
-    """
-    page = 0
-
-    while True:
-        page += 1
-
-        data = get_list(page, size)
-        if len(data.items) == 0:
-            break
-
-        yield data
-
-
 def get_org_profile(code):
     """
     公司资料
+
     http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&type=web&color=w#/CompanyProfile
 
     :param code: str eg: 00491

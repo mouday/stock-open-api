@@ -106,3 +106,8 @@ if __name__ == '__main__':
 ## 升级记录 
  
 [CHANGELOG.md](https://github.com/mouday/stock-open-api/blob/master/CHANGELOG.md)
+
+## 其他相关库
+
+- AKShare 开源财经数据接口库 [https://github.com/akfamily/akshare](https://github.com/akfamily/akshare)
+- Tushare 免费提供各类数据 , 助力行业和量化研究。 [https://github.com/waditu/tushare](https://github.com/waditu/tushare)

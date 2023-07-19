@@ -14,4 +14,4 @@ logs/
 .deta
 .pytest_cache
 venv/
-
+doc/build/
