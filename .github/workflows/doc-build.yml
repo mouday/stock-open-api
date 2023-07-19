@@ -1,16 +1,12 @@
 # https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml
 name: Doc Build
 
-#on:
-#  release:
-#    types: [published]
-
 on:
   push:
     branch: ['master']
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   deploy:
