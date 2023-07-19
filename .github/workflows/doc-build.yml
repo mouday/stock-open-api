@@ -29,6 +29,7 @@ jobs:
 
       - name: Build and publish
         run: |
+            cd ./doc && sphinx-apidoc -f -o ./source ../stock_open_api/ && cd ../
             cd ./doc && make html && cd ../
 
       - name: Deploy 🚀

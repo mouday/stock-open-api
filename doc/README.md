@@ -13,6 +13,5 @@
 更新文档.rst文件
 
 ```bash
-$ cd doc
-$ sphinx-apidoc -f -o ./source ../stock_open_api/
+$ cd ./doc && sphinx-apidoc -f -o ./source ../stock_open_api/ && cd ../
 ```
