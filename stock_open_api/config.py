@@ -16,4 +16,4 @@ except ImportError:
 env = Env()
 env.read_env()
 
-STOCK_OPEN_API_DEBUG = env.str('STOCK_OPEN_API_DEBUG', False)
+STOCK_OPEN_API_DEBUG = env.bool('STOCK_OPEN_API_DEBUG', False)
