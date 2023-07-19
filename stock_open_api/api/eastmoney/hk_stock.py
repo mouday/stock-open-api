@@ -14,7 +14,8 @@ from stock_open_api.utils import time_util, request_util
 
 
 def get_list(page=1, size=20):
-    """港股行情列表
+    """
+    港股行情列表
 
     东方财富网 > 行情中心 > 港股市场 > 全部港股
     http://quote.eastmoney.com/center/gridlist.html#hk_stocks
@@ -91,13 +92,17 @@ def get_list(page=1, size=20):
 
 def get_org_profile(code):
     """
-    公司资料
+    港股 公司资料
 
-    http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&type=web&color=w#/CompanyProfile
+    数据来源：http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&type=web&color=w#/CompanyProfile
 
-    :param code: str eg: 00491
+    :param code: 股票代码 eg: 00491
+    :type code: str
 
-    :return:
+    :return: 公司资料
+    :rtype: dict
+
+    >>> get_org_profile('00491')
     {
       "证券代码": "00491.HK",
       "公司名称": "英皇文化产业集团有限公司",
@@ -116,7 +121,7 @@ def get_org_profile(code):
       "联系电话": "+852 2835-6688",
       "核数师": "安永会计师事务所",
       "传真": "+852 2835-8188",
-      "公司介绍": "英皇文化产业集团有限公司(491.HK)主要从事娱乐、媒体及文化发展业务,其中包括(i)戏院营运;及(ii)投资电影及各类文化活动。\r\n於2022年6月30日,本集团营运合共24间戏院,包括於中国内地8间英皇电影城及7间英皇UA电影城、香港7间英皇戏院、澳门1间英皇戏院及马来西亚1间Emperor Cinemas。"
+      "公司介绍": "英皇文化产业集团有限公司(491.HK)主要从事娱乐、媒体及文化发展业务..."
     }
 
     """
@@ -153,12 +158,17 @@ def get_org_profile(code):
 
 def get_security_info(code):
     """
-    证券资料
-    http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&type=web&color=w#/CompanyProfile
+    港股  证券资料
 
-    :param code: str  eg: 00491
+    数据来源：http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&type=web&color=w#/CompanyProfile
 
-    :return:
+    :param code: 股票代码 eg: 00491
+    :type code: str
+
+    :return: 证券资料
+    :rtype: dict
+
+    >>> get_security_info('00491')
     {
       "证券代码": "00491.HK",
       "证券简称": "英皇文化产业",

@@ -20,8 +20,12 @@ def get_company_info(stock_code):
         eg: http://www.sse.com.cn/assortment/stock/list/info/company/index.shtml?COMPANY_CODE=688001
 
     :param stock_code: eg 688001
+    :type stock_code: str
 
     :return:
+    :rtype: dict
+
+    >>> get_company_info('688001')
     {
       "公司代码": "688001",
       "上市日-A": "",

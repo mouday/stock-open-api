@@ -18,6 +18,9 @@
 
 ```bash
 pip install stock-open-api
+
+# 或者
+pip3 install -U stock-open-api -i https://pypi.org/simple
 ```
 
 ## 使用示例

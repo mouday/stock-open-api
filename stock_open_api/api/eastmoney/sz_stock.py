@@ -17,6 +17,9 @@ def get_company_info(code):
     :param code: str eg: 688627
 
     :return:
+    :rtype: dict
+
+    >>> get_company_info('688627')
         {
           "公司名称": "志邦家居股份有限公司",
           "英文名称": "Zbom Home Collection Co.,Ltd",

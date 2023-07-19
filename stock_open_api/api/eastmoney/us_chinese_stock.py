@@ -15,13 +15,17 @@ from stock_open_api.utils import time_util, request_util
 def get_list(page=1, size=20):
     """
     中国概念股 列表
+
     东方财富网 > 行情中心 > 美股市场 > 中国概念股
     http://quote.eastmoney.com/center/gridlist.html#us_chinese
 
     :param page: int
     :param size: int
 
-    :return: ListItem
+    :return:
+    :rtype: ListItem
+
+    >>> get_list()
     {
       "total": 384,
       "items": [
@@ -86,11 +90,14 @@ def get_list(page=1, size=20):
 def get_org_profile(code):
     """
     中国概念股 公司资料
+
     http://emweb.eastmoney.com/PC_USF10/pages/index.html?code=PWM&type=web&color=w#/gsgk/gszl
 
     :param code: str eg: PWM
 
     :return:
+
+    >>> get_org_profile('PWM')
     {
       "证券代码": "PWM.O",
       "公司名称": "Prestige Wealth Inc.",
@@ -150,6 +157,8 @@ def get_security_info(code):
     :param code: str eg: PWM.O
 
     :return:
+
+    >>> get_security_info('PWM.O')
     {
       "证券代码": "PWM",
       "上市日期": "2023-07-06",
