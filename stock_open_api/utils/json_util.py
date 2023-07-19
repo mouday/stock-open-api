@@ -6,5 +6,5 @@
 import json
 
 
-def encode_json(data):
+def format_json(data):
     return json.dumps(data, indent=2, ensure_ascii=False)

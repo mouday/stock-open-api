@@ -165,4 +165,4 @@ def get_company_info(code):
 
 
 if __name__ == '__main__':
-    print(json_util.encode_json(get_list().to_dict()))
+    print(json_util.format_json(get_list().to_dict()))

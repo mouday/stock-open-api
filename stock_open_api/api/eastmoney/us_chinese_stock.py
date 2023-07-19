@@ -9,7 +9,7 @@ import json
 from stock_open_api.api.eastmoney import us_chinese_stock_config
 from stock_open_api.items.list_item import ListItem
 from stock_open_api.log import logger
-from stock_open_api.utils import time_util, request_util
+from stock_open_api.utils import time_util, request_util, json_util
 
 
 def get_list(page=1, size=20):
@@ -152,9 +152,13 @@ def get_org_profile(code):
 def get_security_info(code):
     """
     中国概念股 证券资料
-    http://emweb.eastmoney.com/PC_USF10/pages/index.html?code=PWM&type=web&color=w#/gsgk/zqzl
+
+    数据源：http://emweb.eastmoney.com/PC_USF10/pages/index.html?code=PWM&type=web&color=w#/gsgk/zqzl
 
     :param code: str eg: PWM.O
+
+    - 通过 get_org_profile() 的`证券代码` 字段获取
+    - eg: "证券代码": "PWM.O"
 
     :return:
 
@@ -170,6 +174,7 @@ def get_security_info(code):
       "年结日": "09-30"
     }
     """
+    logger.debug('http://emweb.eastmoney.com/PC_USF10/pages/index.html?code={}&type=web&color=w#/gsgk/zqzl'.format(code))
     url = 'https://datacenter.eastmoney.com/securities/api/data/v1/get'
 
     params = {
@@ -190,14 +195,18 @@ def get_security_info(code):
 
     data = res.json()['result']['data'][0]
 
+    logger.debug(json_util.format_json(data))
+
     item = {}
+
     for row in us_chinese_stock_config.security_info_key_map:
         value = data.get(row['key'])
+
         if isinstance(value, str):
             value = value.strip()
 
         # 上市日期
-        if row['key'] == 'LISTING_DATE':
+        if row['key'] == 'LISTING_DATE' and value:
             value = value.split(' ')[0]
 
         item[row['title']] = value
@@ -207,5 +216,5 @@ def get_security_info(code):
 
 if __name__ == '__main__':
     # print(json.dumps(get_list().to_dict(), indent=2, ensure_ascii=False))
-    # print(json.dumps(get_org_profile('STG'), indent=2, ensure_ascii=False))
-    print(json.dumps(get_security_info('STG.N'), indent=2, ensure_ascii=False))
+    # print(json.dumps(get_org_profile('YBZN'), indent=2, ensure_ascii=False))
+    print(json.dumps(get_security_info('YBZN.O'), indent=2, ensure_ascii=False))
