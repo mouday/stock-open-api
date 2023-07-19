@@ -8,6 +8,7 @@ import json
 
 from stock_open_api.api.eastmoney import us_chinese_stock_config
 from stock_open_api.items.list_item import ListItem
+from stock_open_api.log import logger
 from stock_open_api.utils import time_util, request_util
 
 
@@ -107,6 +108,9 @@ def get_org_profile(code):
       "公司介绍": "盛德财富有限公司是一家在开曼群岛注册成立的境外控股母公司,主要由其境内实体子公司Prestige Financial Holdings Group Limited运营。盛德财富有限公司(“PWI”,或“公司”)是一家于2018年10月25日根据开曼群岛法律成立的有限公司。该公司通过其子公司向高净值和超高净值个人和企业提供私人财富管理服务和资产管理。"
     }
     """
+    detail_url = 'http://emweb.eastmoney.com/PC_USF10/pages/index.html?code={}&type=web&color=w#/gsgk/gszl'.format(code)
+    logger.debug(detail_url)
+
     url = 'https://datacenter.eastmoney.com/securities/api/data/v1/get'
 
     params = {
