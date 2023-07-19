@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-cn" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>stock_open_api.api.eastmoney package &mdash; Stock Open Api 0.0.3 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Stock Open Api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">stock_open_api.api.eastmoney package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.company">stock_open_api.api.eastmoney.company module</a><ul>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.company.get_company_info"><code class="docutils literal notranslate"><span class="pre">get_company_info()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.company_config">stock_open_api.api.eastmoney.company_config module</a></li>
+<li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.hk_stock">stock_open_api.api.eastmoney.hk_stock module</a><ul>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.hk_stock.get_list"><code class="docutils literal notranslate"><span class="pre">get_list()</span></code></a></li>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.hk_stock.get_org_profile"><code class="docutils literal notranslate"><span class="pre">get_org_profile()</span></code></a></li>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.hk_stock.get_security_info"><code class="docutils literal notranslate"><span class="pre">get_security_info()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.hk_stock_config">stock_open_api.api.eastmoney.hk_stock_config module</a></li>
+<li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.kcb_stock">stock_open_api.api.eastmoney.kcb_stock module</a><ul>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.kcb_stock.get_company_info"><code class="docutils literal notranslate"><span class="pre">get_company_info()</span></code></a></li>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.kcb_stock.get_list"><code class="docutils literal notranslate"><span class="pre">get_list()</span></code></a></li>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.kcb_stock.get_list_iter"><code class="docutils literal notranslate"><span class="pre">get_list_iter()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.kcb_stock_config">stock_open_api.api.eastmoney.kcb_stock_config module</a></li>
+<li><a class="reference internal" href="#stock-open-api-api-eastmoney-neeq-stock-module">stock_open_api.api.eastmoney.neeq_stock module</a></li>
+<li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.neeq_stock_config">stock_open_api.api.eastmoney.neeq_stock_config module</a></li>
+<li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.sz_stock">stock_open_api.api.eastmoney.sz_stock module</a><ul>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.sz_stock.get_company_info"><code class="docutils literal notranslate"><span class="pre">get_company_info()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.us_chinese_stock">stock_open_api.api.eastmoney.us_chinese_stock module</a><ul>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.us_chinese_stock.get_list"><code class="docutils literal notranslate"><span class="pre">get_list()</span></code></a></li>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.us_chinese_stock.get_org_profile"><code class="docutils literal notranslate"><span class="pre">get_org_profile()</span></code></a></li>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.us_chinese_stock.get_security_info"><code class="docutils literal notranslate"><span class="pre">get_security_info()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.us_chinese_stock_config">stock_open_api.api.eastmoney.us_chinese_stock_config module</a></li>
+<li><a class="reference internal" href="#module-stock_open_api.api.eastmoney">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Stock Open Api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">stock_open_api.api.eastmoney package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/stock_open_api.api.eastmoney.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="stock-open-api-api-eastmoney-package">
+<h1>stock_open_api.api.eastmoney package<a class="headerlink" href="#stock-open-api-api-eastmoney-package" title="此标题的永久链接"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="此标题的永久链接"></a></h2>
+</section>
+<section id="module-stock_open_api.api.eastmoney.company">
+<span id="stock-open-api-api-eastmoney-company-module"></span><h2>stock_open_api.api.eastmoney.company module<a class="headerlink" href="#module-stock_open_api.api.eastmoney.company" title="此标题的永久链接"></a></h2>
+<p>&#64;File    : company.py
+&#64;Date    : 2023-07-18</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.company.get_company_info">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.company.</span></span><span class="sig-name descname"><span class="pre">get_company_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.company.get_company_info" title="永久链接至目标"></a></dt>
+<dd><p>公司 基本资料 | 发行相关</p>
+<p><a class="reference external" href="http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&amp;code=sh603801">http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&amp;code=sh603801</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> (<em>str</em>) – 股票代码</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>eg:</p></li>
+<li><p>深圳证券交易所 SZ301398 或者 sz301398</p></li>
+<li><p>上海证券交易所 SH688627 或者 sh688627</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p>基本资料 + 发行相关</p>
+</dd>
+<dt class="field-even">返回类型<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_company_info</span><span class="p">(</span><span class="s1">&#39;603801&#39;</span><span class="p">)</span>
+<span class="go">{</span>
+<span class="go">  &quot;公司名称&quot;: &quot;志邦家居股份有限公司&quot;,</span>
+<span class="go">  &quot;英文名称&quot;: &quot;Zbom Home Collection Co.,Ltd&quot;,</span>
+<span class="go">  &quot;A股代码&quot;: &quot;603801&quot;,</span>
+<span class="go">  &quot;A股简称&quot;: &quot;志邦家居&quot;,</span>
+<span class="go">  &quot;A股扩位简称&quot;: null,</span>
+<span class="go">  &quot;曾用名&quot;: &quot;志邦股份&quot;,</span>
+<span class="go">  &quot;B股代码&quot;: null,</span>
+<span class="go">  &quot;B股简称&quot;: null,</span>
+<span class="go">  &quot;H股代码&quot;: null,</span>
+<span class="go">  &quot;H股简称&quot;: null,</span>
+<span class="go">  &quot;证券类别&quot;: &quot;上交所主板A股&quot;,</span>
+<span class="go">  &quot;上市交易所&quot;: &quot;上海证券交易所&quot;,</span>
+<span class="go">  &quot;所属东财行业&quot;: &quot;轻工制造-家具-家具制造&quot;,</span>
+<span class="go">  &quot;所属证监会行业&quot;: &quot;鲁昌华,张京跃,王文兵&quot;,</span>
+<span class="go">  &quot;总经理&quot;: &quot;许帮顺&quot;,</span>
+<span class="go">  &quot;法人代表&quot;: &quot;孙志勇&quot;,</span>
+<span class="go">  &quot;董秘&quot;: &quot;孙娟&quot;,</span>
+<span class="go">  &quot;董事长&quot;: &quot;孙志勇&quot;,</span>
+<span class="go">  &quot;证券事务代表&quot;: &quot;臧晶晶&quot;,</span>
+<span class="go">  &quot;独立董事&quot;: &quot;鲁昌华,张京跃,王文兵&quot;,</span>
+<span class="go">  &quot;联系电话&quot;: &quot;0551-67186564&quot;,</span>
+<span class="go">  &quot;电子信箱&quot;: &quot;zbom@zbom.com&quot;,</span>
+<span class="go">  &quot;传真&quot;: &quot;0551-65203999&quot;,</span>
+<span class="go">  &quot;公司网址&quot;: &quot;www.zbom.com&quot;,</span>
+<span class="go">  &quot;办公地址&quot;: &quot;安徽省合肥市庐阳工业区连水路19号&quot;,</span>
+<span class="go">  &quot;注册地址&quot;: &quot;安徽省合肥市庐阳工业区连水路19号&quot;,</span>
+<span class="go">  &quot;区域&quot;: &quot;安徽&quot;,</span>
+<span class="go">  &quot;邮政编码&quot;: &quot;230061&quot;,</span>
+<span class="go">  &quot;注册资本(元)&quot;: 43654.7813,</span>
+<span class="go">  &quot;工商登记&quot;: &quot;91340100772816763N&quot;,</span>
+<span class="go">  &quot;雇员人数&quot;: 5151,</span>
+<span class="go">  &quot;管理人员人数&quot;: 16,</span>
+<span class="go">  &quot;律师事务所&quot;: &quot;安徽天禾律师事务所&quot;,</span>
+<span class="go">  &quot;会计师事务所&quot;: &quot;大华会计师事务所(特殊普通合伙)&quot;,</span>
+<span class="go">  &quot;公司介绍&quot;: &quot;志邦家居股份有限公司创立于1998年,是中国厨柜行业的先行者...&quot;,</span>
+<span class="go">  &quot;经营范围&quot;: &quot;家具制造;家具零配件生产;家具零配件销售...&quot;,</span>
+<span class="go">  &quot;成立日期&quot;: &quot;2005-04-04&quot;,</span>
+<span class="go">  &quot;上市日期&quot;: &quot;2017-06-30&quot;,</span>
+<span class="go">  &quot;发行市盈率(倍)&quot;: 22.92,</span>
+<span class="go">  &quot;网上发行日期&quot;: &quot;2017-06-20&quot;,</span>
+<span class="go">  &quot;发行方式&quot;: &quot;网上定价发行,网下询价配售,市值申购&quot;,</span>
+<span class="go">  &quot;每股面值(元)&quot;: 1,</span>
+<span class="go">  &quot;发行量(股)&quot;: 40000000,</span>
+<span class="go">  &quot;每股发行价(元)&quot;: 23.47,</span>
+<span class="go">  &quot;发行费用(元)&quot;: 89434000,</span>
+<span class="go">  &quot;发行总市值(元)&quot;: 938800000,</span>
+<span class="go">  &quot;募集资金净额(元)&quot;: 849366000,</span>
+<span class="go">  &quot;首日开盘价(元)&quot;: 33.8,</span>
+<span class="go">  &quot;首日收盘价(元)&quot;: 33.8,</span>
+<span class="go">  &quot;首日换手率&quot;: 0.0914,</span>
+<span class="go">  &quot;首日最高价(元)&quot;: 33.8,</span>
+<span class="go">  &quot;网下配售中签率&quot;: 0.02743221,</span>
+<span class="go">  &quot;定价中签率&quot;: 0.03205759</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-stock_open_api.api.eastmoney.company_config">
+<span id="stock-open-api-api-eastmoney-company-config-module"></span><h2>stock_open_api.api.eastmoney.company_config module<a class="headerlink" href="#module-stock_open_api.api.eastmoney.company_config" title="此标题的永久链接"></a></h2>
+<p>&#64;File    : company_config.py
+&#64;Date    : 2023-07-18</p>
+</section>
+<section id="module-stock_open_api.api.eastmoney.hk_stock">
+<span id="stock-open-api-api-eastmoney-hk-stock-module"></span><h2>stock_open_api.api.eastmoney.hk_stock module<a class="headerlink" href="#module-stock_open_api.api.eastmoney.hk_stock" title="此标题的永久链接"></a></h2>
+<p>&#64;File    : hk_stock.py
+&#64;Date    : 2023-07-17</p>
+<p>港股相关接口</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.hk_stock.get_list">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.hk_stock.</span></span><span class="sig-name descname"><span class="pre">get_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">page</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.hk_stock.get_list" title="永久链接至目标"></a></dt>
+<dd><p>港股行情列表</p>
+<p>东方财富网 &gt; 行情中心 &gt; 港股市场 &gt; 全部港股
+<a class="reference external" href="http://quote.eastmoney.com/center/gridlist.html#hk_stocks">http://quote.eastmoney.com/center/gridlist.html#hk_stocks</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>page</strong> (<em>int</em>) – 分页</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – 分页大小</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>港股行情列表</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="stock_open_api.items.html#stock_open_api.items.list_item.ListItem" title="stock_open_api.items.list_item.ListItem">ListItem</a></p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_list</span><span class="p">()</span>
+<span class="go">{</span>
+<span class="go">  &quot;total&quot;: 4587,</span>
+<span class="go">  &quot;items&quot;: [</span>
+<span class="go">    {</span>
+<span class="go">      &quot;代码&quot;: &quot;00491&quot;,</span>
+<span class="go">      &quot;名称&quot;: &quot;英皇文化产业&quot;,</span>
+<span class="go">      &quot;最新价&quot;: 0.075,</span>
+<span class="go">      &quot;涨跌额&quot;: 0.018,</span>
+<span class="go">      &quot;涨跌幅&quot;: 31.58,</span>
+<span class="go">      &quot;今开&quot;: 0.06,</span>
+<span class="go">      &quot;最高&quot;: 0.078,</span>
+<span class="go">      &quot;最低&quot;: 0.06,</span>
+<span class="go">      &quot;昨收&quot;: 0.057,</span>
+<span class="go">      &quot;成交量(股)&quot;: 28240000,</span>
+<span class="go">      &quot;成交额&quot;: 2008120.0</span>
+<span class="go">    }</span>
+<span class="go">  ]</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.hk_stock.get_org_profile">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.hk_stock.</span></span><span class="sig-name descname"><span class="pre">get_org_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.hk_stock.get_org_profile" title="永久链接至目标"></a></dt>
+<dd><blockquote>
+<div><p>公司资料</p>
+<p><a class="reference external" href="http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&amp;type=web&amp;color=w#/CompanyProfile">http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&amp;type=web&amp;color=w#/CompanyProfile</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">param code<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str eg: 00491</p>
+</dd>
+<dt class="field-even">return<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<dl class="simple">
+<dt>{</dt><dd><p>“证券代码”: “00491.HK”,
+“公司名称”: “英皇文化产业集团有限公司”,
+“英文名称”: “Emperor Culture Group Limited”,
+“注册地”: “Bermuda 百慕大”,
+“注册地址”: “Clarendon House, 2 Church Street, Hamilton, Bermuda”,
+“公司成立日期”: “1992-03-27”,
+“所属行业”: “媒体及娱乐”,
+“董事长”: “范敏嫦”,
+“公司秘书”: “廖雪盈”,
+“员工人数”: 598,
+“办公地址”: “香港湾仔轩尼诗道288号英皇集团中心28楼”,
+“公司网址”: “www.empculture.com”,
+“E-MAIL”: “<a class="reference external" href="mailto:enquiry&#37;&#52;&#48;emperorgroup&#46;com">enquiry<span>&#64;</span>emperorgroup<span>&#46;</span>com</a>”,
+“年结日”: “06-30”,
+“联系电话”: “+852 2835-6688”,
+“核数师”: “安永会计师事务所”,
+“传真”: “+852 2835-8188”,
+“公司介绍”: “英皇文化产业集团有限公司(491.HK)主要从事娱乐、媒体及文化发展业务,其中包括(i)戏院营运;及(ii)投资电影及各类文化活动。</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>於2022年6月30日,本集团营运合共24间戏院,包括於中国内地8间英皇电影城及7间英皇UA电影城、香港7间英皇戏院、澳门1间英皇戏院及马来西亚1间Emperor Cinemas。”</dt><dd><p>}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.hk_stock.get_security_info">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.hk_stock.</span></span><span class="sig-name descname"><span class="pre">get_security_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.hk_stock.get_security_info" title="永久链接至目标"></a></dt>
+<dd><p>证券资料
+<a class="reference external" href="http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&amp;type=web&amp;color=w#/CompanyProfile">http://emweb.securities.eastmoney.com/PC_HKF10/pages/home/index.html?code=00491&amp;type=web&amp;color=w#/CompanyProfile</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> – str  eg: 00491</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>{</dt><dd><p>“证券代码”: “00491.HK”,
+“证券简称”: “英皇文化产业”,
+“上市日期”: “1992-06-10 00:00:00”,
+“证券类型”: “非H股”,
+“交易所”: “香港交易所”,
+“板块”: “主板”,
+“最新交易单位（每手股数）”: 20000,
+“ISIN（国际证券识别编码）”: “BMG3036H1079”,
+“是否沪港通标的”: “否”,
+“是否深港通标的”: “否”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd></dl>
+
+</section>
+<section id="module-stock_open_api.api.eastmoney.hk_stock_config">
+<span id="stock-open-api-api-eastmoney-hk-stock-config-module"></span><h2>stock_open_api.api.eastmoney.hk_stock_config module<a class="headerlink" href="#module-stock_open_api.api.eastmoney.hk_stock_config" title="此标题的永久链接"></a></h2>
+<p>&#64;File    : hk_stocks_config.py
+&#64;Date    : 2023-07-17</p>
+</section>
+<section id="module-stock_open_api.api.eastmoney.kcb_stock">
+<span id="stock-open-api-api-eastmoney-kcb-stock-module"></span><h2>stock_open_api.api.eastmoney.kcb_stock module<a class="headerlink" href="#module-stock_open_api.api.eastmoney.kcb_stock" title="此标题的永久链接"></a></h2>
+<p>&#64;File    : kcb_stock.py
+&#64;Date    : 2023-07-17
+科创板相关接口</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.kcb_stock.get_company_info">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.kcb_stock.</span></span><span class="sig-name descname"><span class="pre">get_company_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.kcb_stock.get_company_info" title="永久链接至目标"></a></dt>
+<dd><p>科创板 公司 基本资料 | 发行相关
+<a class="reference external" href="http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&amp;code=sh603801">http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&amp;code=sh603801</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> – str eg: 688627</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>{</dt><dd><p>“公司名称”: “志邦家居股份有限公司”,
+“英文名称”: “Zbom Home Collection Co.,Ltd”,
+“A股代码”: “603801”,
+“A股简称”: “志邦家居”,
+“A股扩位简称”: null,
+“曾用名”: “志邦股份”,
+“B股代码”: null,
+“B股简称”: null,
+“H股代码”: null,
+“H股简称”: null,
+“证券类别”: “上交所主板A股”,
+“上市交易所”: “上海证券交易所”,
+“所属东财行业”: “轻工制造-家具-家具制造”,
+“所属证监会行业”: “鲁昌华,张京跃,王文兵”,
+“总经理”: “许帮顺”,
+“法人代表”: “孙志勇”,
+“董秘”: “孙娟”,
+“董事长”: “孙志勇”,
+“证券事务代表”: “臧晶晶”,
+“独立董事”: “鲁昌华,张京跃,王文兵”,
+“联系电话”: “0551-67186564”,
+“电子信箱”: “<a class="reference external" href="mailto:zbom&#37;&#52;&#48;zbom&#46;com">zbom<span>&#64;</span>zbom<span>&#46;</span>com</a>”,
+“传真”: “0551-65203999”,
+“公司网址”: “www.zbom.com”,
+“办公地址”: “安徽省合肥市庐阳工业区连水路19号”,
+“注册地址”: “安徽省合肥市庐阳工业区连水路19号”,
+“区域”: “安徽”,
+“邮政编码”: “230061”,
+“注册资本(元)”: 43654.7813,
+“工商登记”: “91340100772816763N”,
+“雇员人数”: 5151,
+“管理人员人数”: 16,
+“律师事务所”: “安徽天禾律师事务所”,
+“会计师事务所”: “大华会计师事务所(特殊普通合伙)”,
+“公司介绍”: “志邦家居股份有限公司创立于1998年,是中国厨柜行业的先行者。现在,志邦专注于整家定制家居的研发、设计、生产与销售。从“更懂生活”的品牌理念出发,以整家生活的定制设计和服务为优势,为亿万家庭提供从厨房到全屋的整家解决方案。作为整家定制领域的专业家居品牌,志邦家居为人们提供整体厨房、全屋定制、木门墙板、成品家配为核心的整家一体化设计、制造、交付业务,在全国拥有六大生产基地,引进国外智能化制造设备,整合优质供应链,确保产品从设计、生产、安装到服务的每一个环节都以人为尺度、以生活为核心,为全球家庭创造理想的家居良品。凭借卓越的品质和口碑,志邦家居获得“中国环境标志认证”“FSC国际森林认证”等60余项国内外权威认证,同时成为国内诸多知名地产商的重要战略合作伙伴;志邦家居的产品远销海外,出口至澳洲、北美、东南亚、中东等国家和地区,是丽思卡尔顿、瑰丽酒店等国际五星级酒店优质供应商,在东南亚开设多家品牌专营店,品牌享誉全球。自2009年起,志邦家居与央视等主流媒体达成战略合作,并于2016年强势进驻纽约时代广场。同年签约前世界跳水冠军郭晶晶女士为品牌形象代言人,并先后联手郎平、杜丽等世界冠军和蔡康永、陈小春、罗嘉良、许茹芸、杨烁、孙杨、吴莫愁、王耀庆、钟汉良、张智霖、李晨等众多明星共同为美好生活赋义。2017年6月30日,志邦家居在上交所A股上市,2019年1月,正式签约世界著名音乐人周杰伦先生为品牌全新形象代言人。未来,我们将以专业的整家定制服务,发现和满足人们对生活空间的需求;以前沿的产品设计,引领和启发人们对生活品质的向往;以稳健的成长,为社会的良性发展创造更多真实的价值。志邦家居致力成为中国家居行业的一流企业、全球家居行业的领先企业,为现实现人们对家的美好想象奋力前行。”,
+“经营范围”: “家具制造;家具零配件生产;家具零配件销售;家具销售;家具安装和维修服务;地板制造;地板销售;门窗制造加工;门窗销售;金属门窗工程施工;楼梯制造;楼梯销售;家居用品制造;家居用品销售;建筑装饰材料销售;木材加工;家用电器研发;家用电器制造;家用电器销售;家用电器零配件销售;家用电器安装服务;家用纺织制成品制造;非电力家用器具制造;非电力家用器具销售;卫生洁具研发;卫生洁具制造;卫生洁具销售;厨具卫具及日用杂品研发;厨具卫具及日用杂品批发;厨具卫具及日用杂品零售;日用品销售;灯具销售;互联网销售(除销售需要许可的商品);五金产品批发;五金产品零售;燃气器具生产;电子产品销售;第一类医疗器械销售;第二类医疗器械销售;普通货物仓储服务(不含危险化学品等需许可审批的项目);装卸搬运;会议及展览服务;供应链管理服务;专业设计服务;工业设计服务;咨询策划服务;住房租赁;非居住房地产租赁;货物进出口。”,
+“成立日期”: “2005-04-04”,
+“上市日期”: “2017-06-30”,
+“发行市盈率(倍)”: 22.92,
+“网上发行日期”: “2017-06-20”,
+“发行方式”: “网上定价发行,网下询价配售,市值申购”,
+“每股面值(元)”: 1,
+“发行量(股)”: 40000000,
+“每股发行价(元)”: 23.47,
+“发行费用(元)”: 89434000,
+“发行总市值(元)”: 938800000,
+“募集资金净额(元)”: 849366000,
+“首日开盘价(元)”: 33.8,
+“首日收盘价(元)”: 33.8,
+“首日换手率”: 0.0914,
+“首日最高价(元)”: 33.8,
+“网下配售中签率”: 0.02743221,
+“定价中签率”: 0.03205759</p>
+</dd>
+</dl>
+<p>}</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.kcb_stock.get_list">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.kcb_stock.</span></span><span class="sig-name descname"><span class="pre">get_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">page</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.kcb_stock.get_list" title="永久链接至目标"></a></dt>
+<dd><p>科创板列表
+东方财富网 &gt; 行情中心 &gt; 沪深京个股 &gt; 科创板
+<a class="reference external" href="http://quote.eastmoney.com/center/gridlist.html#kcb_board">http://quote.eastmoney.com/center/gridlist.html#kcb_board</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>page</strong> – int</p></li>
+<li><p><strong>size</strong> – int</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>ListItem</p>
+</dd>
+</dl>
+<dl>
+<dt>{</dt><dd><p>“total”: 553
+“items”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“代码”: “688627”,
+“名称”: “N精智达”,
+“最新价”: 76.6,
+“涨跌幅”: 63.78,
+“涨跌额”: 29.83,
+“成交量(手)”: 164038,
+“成交额”: 1225759938.0,
+“振幅”: 42.61,
+“最高”: 85.93,
+“最低”: 66.0,
+“今开”: 66.1,
+“昨收”: 46.77,
+“量比”: “-“,
+“换手率”: 82.17,
+“市盈率(动态)”: -526.17,
+“市净率”: 4.54,
+“总市值”: 7201300356,
+“流通市值”: 1529094485,
+“60日涨跌幅”: 63.78,
+“年初至今涨跌幅”: 63.78,
+“涨速”: 0.13,
+“5分钟涨跌”: -0.8</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>}</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.kcb_stock.get_list_iter">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.kcb_stock.</span></span><span class="sig-name descname"><span class="pre">get_list_iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.kcb_stock.get_list_iter" title="永久链接至目标"></a></dt>
+<dd><p>科创板 列表迭代器
+:param size: int
+:return:</p>
+</dd></dl>
+
+</section>
+<section id="module-stock_open_api.api.eastmoney.kcb_stock_config">
+<span id="stock-open-api-api-eastmoney-kcb-stock-config-module"></span><h2>stock_open_api.api.eastmoney.kcb_stock_config module<a class="headerlink" href="#module-stock_open_api.api.eastmoney.kcb_stock_config" title="此标题的永久链接"></a></h2>
+<p>&#64;File    : kcb_stock_config.py
+&#64;Date    : 2023-07-17
+中国概念股相关接口</p>
+</section>
+<section id="stock-open-api-api-eastmoney-neeq-stock-module">
+<h2>stock_open_api.api.eastmoney.neeq_stock module<a class="headerlink" href="#stock-open-api-api-eastmoney-neeq-stock-module" title="此标题的永久链接"></a></h2>
+</section>
+<section id="module-stock_open_api.api.eastmoney.neeq_stock_config">
+<span id="stock-open-api-api-eastmoney-neeq-stock-config-module"></span><h2>stock_open_api.api.eastmoney.neeq_stock_config module<a class="headerlink" href="#module-stock_open_api.api.eastmoney.neeq_stock_config" title="此标题的永久链接"></a></h2>
+<p>&#64;File    : hk_stocks_config.py
+&#64;Date    : 2023-07-17</p>
+</section>
+<section id="module-stock_open_api.api.eastmoney.sz_stock">
+<span id="stock-open-api-api-eastmoney-sz-stock-module"></span><h2>stock_open_api.api.eastmoney.sz_stock module<a class="headerlink" href="#module-stock_open_api.api.eastmoney.sz_stock" title="此标题的永久链接"></a></h2>
+<p>&#64;File    : sz_stock.py
+&#64;Date    : 2023-07-18
+深圳证券交易所</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.sz_stock.get_company_info">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.sz_stock.</span></span><span class="sig-name descname"><span class="pre">get_company_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.sz_stock.get_company_info" title="永久链接至目标"></a></dt>
+<dd><p>深圳证券交易所 公司 基本资料 | 发行相关
+<a class="reference external" href="http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&amp;code=sh603801">http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&amp;code=sh603801</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> – str eg: 688627</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>{</dt><dd><p>“公司名称”: “志邦家居股份有限公司”,
+“英文名称”: “Zbom Home Collection Co.,Ltd”,
+“A股代码”: “603801”,
+“A股简称”: “志邦家居”,
+“A股扩位简称”: null,
+“曾用名”: “志邦股份”,
+“B股代码”: null,
+“B股简称”: null,
+“H股代码”: null,
+“H股简称”: null,
+“证券类别”: “上交所主板A股”,
+“上市交易所”: “上海证券交易所”,
+“所属东财行业”: “轻工制造-家具-家具制造”,
+“所属证监会行业”: “鲁昌华,张京跃,王文兵”,
+“总经理”: “许帮顺”,
+“法人代表”: “孙志勇”,
+“董秘”: “孙娟”,
+“董事长”: “孙志勇”,
+“证券事务代表”: “臧晶晶”,
+“独立董事”: “鲁昌华,张京跃,王文兵”,
+“联系电话”: “0551-67186564”,
+“电子信箱”: “<a class="reference external" href="mailto:zbom&#37;&#52;&#48;zbom&#46;com">zbom<span>&#64;</span>zbom<span>&#46;</span>com</a>”,
+“传真”: “0551-65203999”,
+“公司网址”: “www.zbom.com”,
+“办公地址”: “安徽省合肥市庐阳工业区连水路19号”,
+“注册地址”: “安徽省合肥市庐阳工业区连水路19号”,
+“区域”: “安徽”,
+“邮政编码”: “230061”,
+“注册资本(元)”: 43654.7813,
+“工商登记”: “91340100772816763N”,
+“雇员人数”: 5151,
+“管理人员人数”: 16,
+“律师事务所”: “安徽天禾律师事务所”,
+“会计师事务所”: “大华会计师事务所(特殊普通合伙)”,
+“公司介绍”: “志邦家居股份有限公司创立于1998年,是中国厨柜行业的先行者。现在,志邦专注于整家定制家居的研发、设计、生产与销售。从“更懂生活”的品牌理念出发,以整家生活的定制设计和服务为优势,为亿万家庭提供从厨房到全屋的整家解决方案。作为整家定制领域的专业家居品牌,志邦家居为人们提供整体厨房、全屋定制、木门墙板、成品家配为核心的整家一体化设计、制造、交付业务,在全国拥有六大生产基地,引进国外智能化制造设备,整合优质供应链,确保产品从设计、生产、安装到服务的每一个环节都以人为尺度、以生活为核心,为全球家庭创造理想的家居良品。凭借卓越的品质和口碑,志邦家居获得“中国环境标志认证”“FSC国际森林认证”等60余项国内外权威认证,同时成为国内诸多知名地产商的重要战略合作伙伴;志邦家居的产品远销海外,出口至澳洲、北美、东南亚、中东等国家和地区,是丽思卡尔顿、瑰丽酒店等国际五星级酒店优质供应商,在东南亚开设多家品牌专营店,品牌享誉全球。自2009年起,志邦家居与央视等主流媒体达成战略合作,并于2016年强势进驻纽约时代广场。同年签约前世界跳水冠军郭晶晶女士为品牌形象代言人,并先后联手郎平、杜丽等世界冠军和蔡康永、陈小春、罗嘉良、许茹芸、杨烁、孙杨、吴莫愁、王耀庆、钟汉良、张智霖、李晨等众多明星共同为美好生活赋义。2017年6月30日,志邦家居在上交所A股上市,2019年1月,正式签约世界著名音乐人周杰伦先生为品牌全新形象代言人。未来,我们将以专业的整家定制服务,发现和满足人们对生活空间的需求;以前沿的产品设计,引领和启发人们对生活品质的向往;以稳健的成长,为社会的良性发展创造更多真实的价值。志邦家居致力成为中国家居行业的一流企业、全球家居行业的领先企业,为现实现人们对家的美好想象奋力前行。”,
+“经营范围”: “家具制造;家具零配件生产;家具零配件销售;家具销售;家具安装和维修服务;地板制造;地板销售;门窗制造加工;门窗销售;金属门窗工程施工;楼梯制造;楼梯销售;家居用品制造;家居用品销售;建筑装饰材料销售;木材加工;家用电器研发;家用电器制造;家用电器销售;家用电器零配件销售;家用电器安装服务;家用纺织制成品制造;非电力家用器具制造;非电力家用器具销售;卫生洁具研发;卫生洁具制造;卫生洁具销售;厨具卫具及日用杂品研发;厨具卫具及日用杂品批发;厨具卫具及日用杂品零售;日用品销售;灯具销售;互联网销售(除销售需要许可的商品);五金产品批发;五金产品零售;燃气器具生产;电子产品销售;第一类医疗器械销售;第二类医疗器械销售;普通货物仓储服务(不含危险化学品等需许可审批的项目);装卸搬运;会议及展览服务;供应链管理服务;专业设计服务;工业设计服务;咨询策划服务;住房租赁;非居住房地产租赁;货物进出口。”,
+“成立日期”: “2005-04-04”,
+“上市日期”: “2017-06-30”,
+“发行市盈率(倍)”: 22.92,
+“网上发行日期”: “2017-06-20”,
+“发行方式”: “网上定价发行,网下询价配售,市值申购”,
+“每股面值(元)”: 1,
+“发行量(股)”: 40000000,
+“每股发行价(元)”: 23.47,
+“发行费用(元)”: 89434000,
+“发行总市值(元)”: 938800000,
+“募集资金净额(元)”: 849366000,
+“首日开盘价(元)”: 33.8,
+“首日收盘价(元)”: 33.8,
+“首日换手率”: 0.0914,
+“首日最高价(元)”: 33.8,
+“网下配售中签率”: 0.02743221,
+“定价中签率”: 0.03205759</p>
+</dd>
+</dl>
+<p>}</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-stock_open_api.api.eastmoney.us_chinese_stock">
+<span id="stock-open-api-api-eastmoney-us-chinese-stock-module"></span><h2>stock_open_api.api.eastmoney.us_chinese_stock module<a class="headerlink" href="#module-stock_open_api.api.eastmoney.us_chinese_stock" title="此标题的永久链接"></a></h2>
+<p>&#64;File    : us_chinese_stock.py
+&#64;Date    : 2023-07-17
+中国概念股相关接口</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.us_chinese_stock.get_list">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.us_chinese_stock.</span></span><span class="sig-name descname"><span class="pre">get_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">page</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.us_chinese_stock.get_list" title="永久链接至目标"></a></dt>
+<dd><p>中国概念股 列表
+东方财富网 &gt; 行情中心 &gt; 美股市场 &gt; 中国概念股
+<a class="reference external" href="http://quote.eastmoney.com/center/gridlist.html#us_chinese">http://quote.eastmoney.com/center/gridlist.html#us_chinese</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>page</strong> – int</p></li>
+<li><p><strong>size</strong> – int</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p>ListItem</p>
+</dd>
+</dl>
+<dl>
+<dt>{</dt><dd><p>“total”: 384,
+“items”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“代码”: “PWM”,
+“名称”: “盛德财富”,
+“最新价(美元)”: 17.0,
+“涨跌额”: 5.33,
+“涨跌幅”: 45.67,
+“开盘价”: 10.5,
+“最高价”: 19.5,
+“最低价”: 10.5,
+“昨收价”: 11.67,
+“总市值(美元)”: 153000000,
+“市盈率”: 112.95</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>}</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.us_chinese_stock.get_org_profile">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.us_chinese_stock.</span></span><span class="sig-name descname"><span class="pre">get_org_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.us_chinese_stock.get_org_profile" title="永久链接至目标"></a></dt>
+<dd><p>中国概念股 公司资料
+<a class="reference external" href="http://emweb.eastmoney.com/PC_USF10/pages/index.html?code=PWM&amp;type=web&amp;color=w#/gsgk/gszl">http://emweb.eastmoney.com/PC_USF10/pages/index.html?code=PWM&amp;type=web&amp;color=w#/gsgk/gszl</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> – str eg: PWM</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>{</dt><dd><p>“证券代码”: “PWM.O”,
+“公司名称”: “Prestige Wealth Inc.”,
+“中文名称”: “盛德财富有限公司”,
+“注册地址”: null,
+“成立日期”: “2018-10-25”,
+“所属行业”: “投资银行业与经纪业”,
+“主席”: “Hongtao Shi(师鸿涛)”,
+“员工人数”: 6,
+“办公地址”: “香港中环皇后大道中2号长江集团中心51楼5102室”,
+“公司网址”: “www.prestigewealthinc.com”,
+“E-MAIL”: null,
+“电话号码”: “+852 2122-8560”,
+“传真号码”: “+852 2122 8589”,
+“公司介绍”: “盛德财富有限公司是一家在开曼群岛注册成立的境外控股母公司,主要由其境内实体子公司Prestige Financial Holdings Group Limited运营。盛德财富有限公司(“PWI”,或“公司”)是一家于2018年10月25日根据开曼群岛法律成立的有限公司。该公司通过其子公司向高净值和超高净值个人和企业提供私人财富管理服务和资产管理。”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.us_chinese_stock.get_security_info">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.us_chinese_stock.</span></span><span class="sig-name descname"><span class="pre">get_security_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.us_chinese_stock.get_security_info" title="永久链接至目标"></a></dt>
+<dd><p>中国概念股 证券资料
+<a class="reference external" href="http://emweb.eastmoney.com/PC_USF10/pages/index.html?code=PWM&amp;type=web&amp;color=w#/gsgk/zqzl">http://emweb.eastmoney.com/PC_USF10/pages/index.html?code=PWM&amp;type=web&amp;color=w#/gsgk/zqzl</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> – str eg: PWM.O</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>{</dt><dd><p>“证券代码”: “PWM”,
+“上市日期”: “2023-07-06”,
+“证券类型”: “美股”,
+“上市场所”: “NASDAQ”,
+“ISIN”: “KYG7244A1013”,
+“每股面值”: “0.000625 USD”,
+“ADS折算比”: null,
+“年结日”: “09-30”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd></dl>
+
+</section>
+<section id="module-stock_open_api.api.eastmoney.us_chinese_stock_config">
+<span id="stock-open-api-api-eastmoney-us-chinese-stock-config-module"></span><h2>stock_open_api.api.eastmoney.us_chinese_stock_config module<a class="headerlink" href="#module-stock_open_api.api.eastmoney.us_chinese_stock_config" title="此标题的永久链接"></a></h2>
+<p>&#64;File    : us_chinese_stock_config.py
+&#64;Date    : 2023-07-17
+中国概念股相关接口</p>
+</section>
+<section id="module-stock_open_api.api.eastmoney">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-stock_open_api.api.eastmoney" title="此标题的永久链接"></a></h2>
+<p>&#64;File    : __init__.py.py
+&#64;Date    : 2023-07-17</p>
+<p>东方财富 股票数据源
+<a class="reference external" href="https://www.eastmoney.com/">https://www.eastmoney.com/</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, Peng Shiyu.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

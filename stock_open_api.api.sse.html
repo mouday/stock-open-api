@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-cn" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>stock_open_api.api.sse package &mdash; Stock Open Api 0.0.3 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Stock Open Api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">stock_open_api.api.sse package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-stock_open_api.api.sse.sh_stock">stock_open_api.api.sse.sh_stock module</a><ul>
+<li><a class="reference internal" href="#stock_open_api.api.sse.sh_stock.get_company_info"><code class="docutils literal notranslate"><span class="pre">get_company_info()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-stock_open_api.api.sse.sh_stock_config">stock_open_api.api.sse.sh_stock_config module</a></li>
+<li><a class="reference internal" href="#module-stock_open_api.api.sse">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Stock Open Api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">stock_open_api.api.sse package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/stock_open_api.api.sse.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="stock-open-api-api-sse-package">
+<h1>stock_open_api.api.sse package<a class="headerlink" href="#stock-open-api-api-sse-package" title="此标题的永久链接"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="此标题的永久链接"></a></h2>
+</section>
+<section id="module-stock_open_api.api.sse.sh_stock">
+<span id="stock-open-api-api-sse-sh-stock-module"></span><h2>stock_open_api.api.sse.sh_stock module<a class="headerlink" href="#module-stock_open_api.api.sse.sh_stock" title="此标题的永久链接"></a></h2>
+<p>sh_stock.py
+上海证券交易所</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.sse.sh_stock.get_company_info">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.sse.sh_stock.</span></span><span class="sig-name descname"><span class="pre">get_company_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stock_code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.sse.sh_stock.get_company_info" title="永久链接至目标"></a></dt>
+<dd><p>股票概况 / 公司信息 / 公司概况</p>
+<dl class="simple">
+<dt>页面地址</dt><dd><p>eg: <a class="reference external" href="http://www.sse.com.cn/assortment/stock/list/info/company/index.shtml?COMPANY_CODE=688001">http://www.sse.com.cn/assortment/stock/list/info/company/index.shtml?COMPANY_CODE=688001</a></p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stock_code</strong> – eg 688001</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>{</dt><dd><p>“公司代码”: “688001”,
+“上市日-A”: “”,
+“代码-A”: “688001”,
+“简称-A”: “华兴源创”,
+“代码-B”: “-“,
+“上市日-B”: “”,
+“可转债简称”: “华兴转债”,
+“可转债代码”: “”,
+“可转债转股简称”: “华兴转债”,
+“可转债转股代码”: “118003”,
+“公司简称-中”: “华兴源创”,
+“公司简称-英”: “HYC”,
+“公司全称-中”: “苏州华兴源创科技股份有限公司”,
+“公司全称-英”: “Suzhou HYC Technology CO., LTD”,
+“扩位证券简称”: “苏州华兴源创科技”,
+“上市时是否盈利”: “1”,
+“是否具有表决权差异安排”: “0”,
+“注册地址”: “苏州工业园区青丘巷8号”,
+“通讯地址”: “苏州工业园区青丘巷8号”,
+“邮编”: “215000”,
+“法定代表人”: “陈文源”,
+“董事会秘书姓名”: “”,
+“E-mail”: “<a class="reference external" href="mailto:dongmiban&#37;&#52;&#48;hyc&#46;cn">dongmiban<span>&#64;</span>hyc<span>&#46;</span>cn</a>”,
+“联系电话”: “”,
+“网址”: “<a class="reference external" href="http://www.hyc.cn">http://www.hyc.cn</a>”,
+“CSRC行业”: “高端装备”,
+“SSE行业”: “工业”,
+“所属省/直辖市”: “江苏”,
+“状态-A”: “上市”,
+“状态-B”: “-“,
+“是否上证180样本股”: “-“,
+“是否境外上市”: “-“,
+“境外上市地”: “-”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd></dl>
+
+</section>
+<section id="module-stock_open_api.api.sse.sh_stock_config">
+<span id="stock-open-api-api-sse-sh-stock-config-module"></span><h2>stock_open_api.api.sse.sh_stock_config module<a class="headerlink" href="#module-stock_open_api.api.sse.sh_stock_config" title="此标题的永久链接"></a></h2>
+<p>stock_config.py
+上海证券交易所</p>
+</section>
+<section id="module-stock_open_api.api.sse">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-stock_open_api.api.sse" title="此标题的永久链接"></a></h2>
+<p>&#64;File    : __init__.py.py
+&#64;Date    : 2023-07-17</p>
+<p>行情报表
+<a class="reference external" href="http://www.sse.com.cn/market/price/report/">http://www.sse.com.cn/market/price/report/</a></p>
+<p>股票与存托凭证
+<a class="reference external" href="http://www.sse.com.cn/assortment/stock/list/share/">http://www.sse.com.cn/assortment/stock/list/share/</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, Peng Shiyu.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
