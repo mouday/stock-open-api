@@ -14,6 +14,14 @@ Subpackages
 Submodules
 ----------
 
+stock\_open\_api.config module
+------------------------------
+
+.. automodule:: stock_open_api.config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 stock\_open\_api.log module
 ---------------------------
 
