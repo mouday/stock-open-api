@@ -98,49 +98,53 @@
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>stock_code</strong> – eg 688001</p>
+<dd class="field-odd"><p><strong>stock_code</strong> (<em>str</em>) – eg 688001</p>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
 <dd class="field-even"><p></p>
 </dd>
-</dl>
-<dl class="simple">
-<dt>{</dt><dd><p>“公司代码”: “688001”,
-“上市日-A”: “”,
-“代码-A”: “688001”,
-“简称-A”: “华兴源创”,
-“代码-B”: “-“,
-“上市日-B”: “”,
-“可转债简称”: “华兴转债”,
-“可转债代码”: “”,
-“可转债转股简称”: “华兴转债”,
-“可转债转股代码”: “118003”,
-“公司简称-中”: “华兴源创”,
-“公司简称-英”: “HYC”,
-“公司全称-中”: “苏州华兴源创科技股份有限公司”,
-“公司全称-英”: “Suzhou HYC Technology CO., LTD”,
-“扩位证券简称”: “苏州华兴源创科技”,
-“上市时是否盈利”: “1”,
-“是否具有表决权差异安排”: “0”,
-“注册地址”: “苏州工业园区青丘巷8号”,
-“通讯地址”: “苏州工业园区青丘巷8号”,
-“邮编”: “215000”,
-“法定代表人”: “陈文源”,
-“董事会秘书姓名”: “”,
-“E-mail”: “<a class="reference external" href="mailto:dongmiban&#37;&#52;&#48;hyc&#46;cn">dongmiban<span>&#64;</span>hyc<span>&#46;</span>cn</a>”,
-“联系电话”: “”,
-“网址”: “<a class="reference external" href="http://www.hyc.cn">http://www.hyc.cn</a>”,
-“CSRC行业”: “高端装备”,
-“SSE行业”: “工业”,
-“所属省/直辖市”: “江苏”,
-“状态-A”: “上市”,
-“状态-B”: “-“,
-“是否上证180样本股”: “-“,
-“是否境外上市”: “-“,
-“境外上市地”: “-”</p>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
-<p>}</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_company_info</span><span class="p">(</span><span class="s1">&#39;688001&#39;</span><span class="p">)</span>
+<span class="go">{</span>
+<span class="go">  &quot;公司代码&quot;: &quot;688001&quot;,</span>
+<span class="go">  &quot;上市日-A&quot;: &quot;&quot;,</span>
+<span class="go">  &quot;代码-A&quot;: &quot;688001&quot;,</span>
+<span class="go">  &quot;简称-A&quot;: &quot;华兴源创&quot;,</span>
+<span class="go">  &quot;代码-B&quot;: &quot;-&quot;,</span>
+<span class="go">  &quot;上市日-B&quot;: &quot;&quot;,</span>
+<span class="go">  &quot;可转债简称&quot;: &quot;华兴转债&quot;,</span>
+<span class="go">  &quot;可转债代码&quot;: &quot;&quot;,</span>
+<span class="go">  &quot;可转债转股简称&quot;: &quot;华兴转债&quot;,</span>
+<span class="go">  &quot;可转债转股代码&quot;: &quot;118003&quot;,</span>
+<span class="go">  &quot;公司简称-中&quot;: &quot;华兴源创&quot;,</span>
+<span class="go">  &quot;公司简称-英&quot;: &quot;HYC&quot;,</span>
+<span class="go">  &quot;公司全称-中&quot;: &quot;苏州华兴源创科技股份有限公司&quot;,</span>
+<span class="go">  &quot;公司全称-英&quot;: &quot;Suzhou HYC Technology CO., LTD&quot;,</span>
+<span class="go">  &quot;扩位证券简称&quot;: &quot;苏州华兴源创科技&quot;,</span>
+<span class="go">  &quot;上市时是否盈利&quot;: &quot;1&quot;,</span>
+<span class="go">  &quot;是否具有表决权差异安排&quot;: &quot;0&quot;,</span>
+<span class="go">  &quot;注册地址&quot;: &quot;苏州工业园区青丘巷8号&quot;,</span>
+<span class="go">  &quot;通讯地址&quot;: &quot;苏州工业园区青丘巷8号&quot;,</span>
+<span class="go">  &quot;邮编&quot;: &quot;215000&quot;,</span>
+<span class="go">  &quot;法定代表人&quot;: &quot;陈文源&quot;,</span>
+<span class="go">  &quot;董事会秘书姓名&quot;: &quot;&quot;,</span>
+<span class="go">  &quot;E-mail&quot;: &quot;dongmiban@hyc.cn&quot;,</span>
+<span class="go">  &quot;联系电话&quot;: &quot;&quot;,</span>
+<span class="go">  &quot;网址&quot;: &quot;http://www.hyc.cn&quot;,</span>
+<span class="go">  &quot;CSRC行业&quot;: &quot;高端装备&quot;,</span>
+<span class="go">  &quot;SSE行业&quot;: &quot;工业&quot;,</span>
+<span class="go">  &quot;所属省/直辖市&quot;: &quot;江苏&quot;,</span>
+<span class="go">  &quot;状态-A&quot;: &quot;上市&quot;,</span>
+<span class="go">  &quot;状态-B&quot;: &quot;-&quot;,</span>
+<span class="go">  &quot;是否上证180样本股&quot;: &quot;-&quot;,</span>
+<span class="go">  &quot;是否境外上市&quot;: &quot;-&quot;,</span>
+<span class="go">  &quot;境外上市地&quot;: &quot;-&quot;</span>
+<span class="go">}</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
