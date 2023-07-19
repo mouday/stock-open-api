@@ -3,6 +3,7 @@
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/stock-open-api)](https://pypi.org/project/stock-open-api)
 [![PyPI](https://img.shields.io/pypi/v/stock-open-api.svg)](https://pypi.org/project/stock-open-api)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/stock-open-api?label=pypi%20downloads)](https://pypi.org/project/stock-open-api)
+[![Documentation Status](https://readthedocs.org/projects/stock-open-api/badge/?version=latest)](https://stock-open-api.readthedocs.io/zh_CN/latest/?badge=latest)
 
 股票数据接口
 
@@ -10,6 +11,8 @@
 
 - github: [https://github.com/mouday/stock-open-api](https://github.com/mouday/stock-open-api)
 - pypi: [https://pypi.org/project/stock-open-api/](https://pypi.org/project/stock-open-api/)
+- 项目文档：[https://stock-open-api.readthedocs.io/zh_CN/latest/](https://stock-open-api.readthedocs.io/zh_CN/latest/stock_open_api.html#module-stock_open_api)
+- 项目主页：[https://mouday.github.io/stock-open-api/](https://mouday.github.io/stock-open-api/)
 
 ## 安装
 
