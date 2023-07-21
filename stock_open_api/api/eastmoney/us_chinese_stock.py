@@ -216,5 +216,5 @@ def get_security_info(code):
 
 if __name__ == '__main__':
     # print(json.dumps(get_list().to_dict(), indent=2, ensure_ascii=False))
-    # print(json.dumps(get_org_profile('YBZN'), indent=2, ensure_ascii=False))
-    print(json.dumps(get_security_info('YBZN.O'), indent=2, ensure_ascii=False))
+    # print(json.dumps(get_org_profile('WXT'), indent=2, ensure_ascii=False))
+    print(json.dumps(get_security_info('WXT.O'), indent=2, ensure_ascii=False))
