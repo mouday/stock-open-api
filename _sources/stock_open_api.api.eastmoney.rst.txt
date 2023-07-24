@@ -68,6 +68,14 @@ stock\_open\_api.api.eastmoney.neeq\_stock\_config module
    :undoc-members:
    :show-inheritance:
 
+stock\_open\_api.api.eastmoney.sh\_stock module
+-----------------------------------------------
+
+.. automodule:: stock_open_api.api.eastmoney.sh_stock
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 stock\_open\_api.api.eastmoney.sz\_stock module
 -----------------------------------------------
 

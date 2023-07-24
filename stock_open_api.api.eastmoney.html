@@ -65,6 +65,10 @@
 <li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.kcb_stock_config">stock_open_api.api.eastmoney.kcb_stock_config module</a></li>
 <li><a class="reference internal" href="#stock-open-api-api-eastmoney-neeq-stock-module">stock_open_api.api.eastmoney.neeq_stock module</a></li>
 <li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.neeq_stock_config">stock_open_api.api.eastmoney.neeq_stock_config module</a></li>
+<li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.sh_stock">stock_open_api.api.eastmoney.sh_stock module</a><ul>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.sh_stock.get_company_info"><code class="docutils literal notranslate"><span class="pre">get_company_info()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.sz_stock">stock_open_api.api.eastmoney.sz_stock module</a><ul>
 <li><a class="reference internal" href="#stock_open_api.api.eastmoney.sz_stock.get_company_info"><code class="docutils literal notranslate"><span class="pre">get_company_info()</span></code></a></li>
 </ul>
@@ -147,7 +151,7 @@
 <span class="go">  &quot;证券类别&quot;: &quot;上交所主板A股&quot;,</span>
 <span class="go">  &quot;上市交易所&quot;: &quot;上海证券交易所&quot;,</span>
 <span class="go">  &quot;所属东财行业&quot;: &quot;轻工制造-家具-家具制造&quot;,</span>
-<span class="go">  &quot;所属证监会行业&quot;: &quot;鲁昌华,张京跃,王文兵&quot;,</span>
+<span class="go">  &quot;所属证监会行业&quot;: &quot;制造业-家具制造业&quot;,</span>
 <span class="go">  &quot;总经理&quot;: &quot;许帮顺&quot;,</span>
 <span class="go">  &quot;法人代表&quot;: &quot;孙志勇&quot;,</span>
 <span class="go">  &quot;董秘&quot;: &quot;孙娟&quot;,</span>
@@ -335,10 +339,10 @@
 <dt class="sig sig-object py" id="stock_open_api.api.eastmoney.kcb_stock.get_company_info">
 <span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.kcb_stock.</span></span><span class="sig-name descname"><span class="pre">get_company_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.kcb_stock.get_company_info" title="永久链接至目标"></a></dt>
 <dd><p>科创板 公司 基本资料 | 发行相关
-<a class="reference external" href="http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&amp;code=sh603801">http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&amp;code=sh603801</a></p>
+<a class="reference external" href="https://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&amp;code=sh688092">https://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&amp;code=sh688092</a></p>
 <dl class="field-list simple">
 <dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>code</strong> – str eg: 688627</p>
+<dd class="field-odd"><p><strong>code</strong> – str eg: 688092</p>
 </dd>
 <dt class="field-even">返回<span class="colon">:</span></dt>
 <dd class="field-even"><p></p>
@@ -359,7 +363,7 @@
 <span class="go">  &quot;证券类别&quot;: &quot;上交所主板A股&quot;,</span>
 <span class="go">  &quot;上市交易所&quot;: &quot;上海证券交易所&quot;,</span>
 <span class="go">  &quot;所属东财行业&quot;: &quot;轻工制造-家具-家具制造&quot;,</span>
-<span class="go">  &quot;所属证监会行业&quot;: &quot;鲁昌华,张京跃,王文兵&quot;,</span>
+<span class="go">  &quot;所属证监会行业&quot;: &quot;制造业-家具制造业&quot;,</span>
 <span class="go">  &quot;总经理&quot;: &quot;许帮顺&quot;,</span>
 <span class="go">  &quot;法人代表&quot;: &quot;孙志勇&quot;,</span>
 <span class="go">  &quot;董秘&quot;: &quot;孙娟&quot;,</span>
@@ -470,6 +474,88 @@
 <p>&#64;File    : hk_stocks_config.py
 &#64;Date    : 2023-07-17</p>
 </section>
+<section id="module-stock_open_api.api.eastmoney.sh_stock">
+<span id="stock-open-api-api-eastmoney-sh-stock-module"></span><h2>stock_open_api.api.eastmoney.sh_stock module<a class="headerlink" href="#module-stock_open_api.api.eastmoney.sh_stock" title="此标题的永久链接"></a></h2>
+<p>&#64;File    : sh_stock.py
+&#64;Date    : 2023-07-18
+上海证券交易所</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.sh_stock.get_company_info">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.sh_stock.</span></span><span class="sig-name descname"><span class="pre">get_company_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.sh_stock.get_company_info" title="永久链接至目标"></a></dt>
+<dd><p>上海证券交易所 公司 基本资料 | 发行相关
+<a class="reference external" href="https://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&amp;code=sh688092">https://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&amp;code=sh688092</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> – str eg: 688092</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_company_info</span><span class="p">(</span><span class="s1">&#39;688627&#39;</span><span class="p">)</span>
+<span class="go">    {</span>
+<span class="go">      &quot;公司名称&quot;: &quot;杭州爱科科技股份有限公司&quot;,</span>
+<span class="go">      &quot;英文名称&quot;: &quot;Hangzhou IECHO Science &amp; Technology Co., Ltd.&quot;,</span>
+<span class="go">      &quot;A股代码&quot;: &quot;688092&quot;,</span>
+<span class="go">      &quot;A股简称&quot;: &quot;爱科科技&quot;,</span>
+<span class="go">      &quot;A股扩位简称&quot;: &quot;爱科科技股份&quot;,</span>
+<span class="go">      &quot;曾用名&quot;: null,</span>
+<span class="go">      &quot;B股代码&quot;: null,</span>
+<span class="go">      &quot;B股简称&quot;: null,</span>
+<span class="go">      &quot;H股代码&quot;: null,</span>
+<span class="go">      &quot;H股简称&quot;: null,</span>
+<span class="go">      &quot;证券类别&quot;: &quot;上交所科创板A股&quot;,</span>
+<span class="go">      &quot;上市交易所&quot;: &quot;上海证券交易所&quot;,</span>
+<span class="go">      &quot;所属东财行业&quot;: &quot;机械设备-专用设备-其他专用机械&quot;,</span>
+<span class="go">      &quot;所属证监会行业&quot;: &quot;制造业-专用设备制造业&quot;,</span>
+<span class="go">      &quot;总经理&quot;: &quot;方云科&quot;,</span>
+<span class="go">      &quot;法人代表&quot;: &quot;方云科&quot;,</span>
+<span class="go">      &quot;董秘&quot;: &quot;王鹏&quot;,</span>
+<span class="go">      &quot;董事长&quot;: &quot;方小卫&quot;,</span>
+<span class="go">      &quot;证券事务代表&quot;: &quot;戴凌胜,石鑫&quot;,</span>
+<span class="go">      &quot;独立董事&quot;: &quot;顾新建,徐赤,贾勇&quot;,</span>
+<span class="go">      &quot;联系电话&quot;: &quot;0571-86696861,0571-86609578&quot;,</span>
+<span class="go">      &quot;电子信箱&quot;: &quot;office@iechosoft.com&quot;,</span>
+<span class="go">      &quot;传真&quot;: &quot;0571-86698923&quot;,</span>
+<span class="go">      &quot;公司网址&quot;: &quot;www.iechosoft.com&quot;,</span>
+<span class="go">      &quot;办公地址&quot;: &quot;杭州市滨江区伟业路1号1幢&quot;,</span>
+<span class="go">      &quot;注册地址&quot;: &quot;杭州市滨江区伟业路1号1幢&quot;,</span>
+<span class="go">      &quot;区域&quot;: &quot;浙江&quot;,</span>
+<span class="go">      &quot;邮政编码&quot;: &quot;310000&quot;,</span>
+<span class="go">      &quot;注册资本(元)&quot;: 5929.8731,</span>
+<span class="go">      &quot;工商登记&quot;: &quot;91330108770830908J&quot;,</span>
+<span class="go">      &quot;雇员人数&quot;: 375,</span>
+<span class="go">      &quot;管理人员人数&quot;: 12,</span>
+<span class="go">      &quot;律师事务所&quot;: &quot;北京中伦文德(杭州)律师事务所&quot;,</span>
+<span class="go">      &quot;会计师事务所&quot;: &quot;立信会计师事务所(特殊普通合伙)&quot;,</span>
+<span class="go">      &quot;公司介绍&quot;: &quot;杭州爱科科技股份有限公司(公司简称:爱科科技,股票代码:688092)是全球非金属行业智能切割一体化解决方案提供商,以科技创新为基础,面向全球提供智能切割解决方案、系统及服务。生产制造基地建筑面积逾60000平方米,拥有国内先进的设备生产线。公司致力于以高端智能装备核心技术推动我国工业转型升级,能够助力广告文印、汽车内饰、家居家纺、复合材料、纺织服装、办公自动化、鞋业、箱包等多种行业客户实现自动化、智能化、工业化生产。赋能企业转型升级,助力用户降本增效、节能降耗、产品创新,促进用户创造卓越价值。爱科秉承着“客户至上、以人为本”的核心价值观真诚服务每一位用户,公司在杭州建立总部,拥有丰云信息、爱科自动化、爱科机器人等3家子公司,并设立广州和郑州2家分公司及北京、上海、沈阳、长沙、成都等20+办事处,构建了完善的服务机制及网络。公司配备了强大的运维服务团队,7*24小时免费客服热线,为客户提供技术咨询、操作指导及售后服务“全生命周期”的全方位优质服务。目前爱科产品已覆盖亚洲、欧洲、非洲、北美洲、南美洲、大洋洲等100+国家和地区,助力各行业用户开创智能切割新篇章。爱科科技将坚持“以优质服务为宗旨、以客户需求为向导”的经营理念,以创新对话未来,重新定义智能切割新技术,让全球行业用户都能享受到来自爱科科技的优质产品服务。&quot;,</span>
+<span class="go">      &quot;经营范围&quot;: &quot;服务:自动化设备、智能装备及AI系统、计算机软硬件、网络信息工程、云服务平台、机械产品、机器人及控制系统、通信设备的技术开发、技术服务、技术咨询、成果转让;批发、零售:自动化设备,智能装备及AI系统,机器人及控制系统,普通机械,仪器仪表,电子计算机及配件;货物进出口(法律、行政法规禁止经营的项目除外,法律、行政法规限制经营的项目取得许可证后方可经营);生产:切割机;其他无需报经审批的一切合法项目(依法须经批准的项目,经相关部门批准后方可开展经营活动)&quot;,</span>
+<span class="go">      &quot;成立日期&quot;: &quot;2005-03-11&quot;,</span>
+<span class="go">      &quot;上市日期&quot;: &quot;2021-03-19&quot;,</span>
+<span class="go">      &quot;发行市盈率(倍)&quot;: 26.78,</span>
+<span class="go">      &quot;网上发行日期&quot;: &quot;2021-03-10&quot;,</span>
+<span class="go">      &quot;发行方式&quot;: &quot;战略配售,网上定价发行,网下询价配售,市值申购,高管员工参与配售,保荐机构参与配售&quot;,</span>
+<span class="go">      &quot;每股面值(元)&quot;: 1,</span>
+<span class="go">      &quot;发行量(股)&quot;: 14789598,</span>
+<span class="go">      &quot;每股发行价(元)&quot;: 19.11,</span>
+<span class="go">      &quot;发行费用(元)&quot;: 48007700,</span>
+<span class="go">      &quot;发行总市值(元)&quot;: 282629217.78,</span>
+<span class="go">      &quot;募集资金净额(元)&quot;: 234621500,</span>
+<span class="go">      &quot;首日开盘价(元)&quot;: 44,</span>
+<span class="go">      &quot;首日收盘价(元)&quot;: 43.61,</span>
+<span class="go">      &quot;首日换手率&quot;: 85.3421,</span>
+<span class="go">      &quot;首日最高价(元)&quot;: 48.2,</span>
+<span class="go">      &quot;网下配售中签率&quot;: 0.02166877,</span>
+<span class="go">      &quot;定价中签率&quot;: 0.02889497</span>
+<span class="go">    }</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
 <section id="module-stock_open_api.api.eastmoney.sz_stock">
 <span id="stock-open-api-api-eastmoney-sz-stock-module"></span><h2>stock_open_api.api.eastmoney.sz_stock module<a class="headerlink" href="#module-stock_open_api.api.eastmoney.sz_stock" title="此标题的永久链接"></a></h2>
 <p>&#64;File    : sz_stock.py
@@ -506,7 +592,7 @@
 <span class="go">      &quot;证券类别&quot;: &quot;上交所主板A股&quot;,</span>
 <span class="go">      &quot;上市交易所&quot;: &quot;上海证券交易所&quot;,</span>
 <span class="go">      &quot;所属东财行业&quot;: &quot;轻工制造-家具-家具制造&quot;,</span>
-<span class="go">      &quot;所属证监会行业&quot;: &quot;鲁昌华,张京跃,王文兵&quot;,</span>
+<span class="go">      &quot;所属证监会行业&quot;: &quot;制造业-家具制造业&quot;,</span>
 <span class="go">      &quot;总经理&quot;: &quot;许帮顺&quot;,</span>
 <span class="go">      &quot;法人代表&quot;: &quot;孙志勇&quot;,</span>
 <span class="go">      &quot;董秘&quot;: &quot;孙娟&quot;,</span>
