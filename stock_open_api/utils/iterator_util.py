@@ -3,7 +3,6 @@
 @File    : iterator_util.py
 @Date    : 2023-07-19
 """
-from stock_open_api.api.eastmoney import us_chinese_stock
 
 
 def list_iterator(list_function, *args, **kwargs):
@@ -23,8 +22,3 @@ def list_iterator(list_function, *args, **kwargs):
             break
 
         yield data
-
-
-if __name__ == '__main__':
-    for data in list_iterator(us_chinese_stock.get_list):
-        print(data.to_dict())
