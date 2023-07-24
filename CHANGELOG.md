@@ -1,3 +1,9 @@
+- v0.0.8(2023-07-24)
+    - 修复 fix: AttributeError: 'NoneType' object has no attribute 'split'
+    - 完善 测试和发布
+    - 优化 文档补全
+    - 优化 iter函数测试
+
 - v0.0.7(2023-07-24)
     - 新增 东方财富数据源上海证券交易所公司基本资料
     - 修复 字段`所属证监会行业`解析错误的bug
