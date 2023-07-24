@@ -103,7 +103,8 @@ def get_company_info(code):
             value = value.strip()
 
         # 上市日期 成立日期 网上发行日期
-        if row['key'] in ['LISTING_DATE', 'FOUND_DATE', 'ONLINE_ISSUE_DATE']:
+        # fix: AttributeError: 'NoneType' object has no attribute 'split'
+        if row['key'] in ['LISTING_DATE', 'FOUND_DATE', 'ONLINE_ISSUE_DATE'] and value:
             value = value.split(' ')[0]
 
         item[row['title']] = value
