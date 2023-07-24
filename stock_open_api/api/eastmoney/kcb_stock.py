@@ -97,9 +97,9 @@ def get_list(page=1, size=20):
 def get_company_info(code):
     """
     科创板 公司 基本资料 | 发行相关
-    http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&code=sh603801
+    https://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&code=sh688092
 
-    :param code: str eg: 688627
+    :param code: str eg: 688092
 
     :return:
 
@@ -118,7 +118,7 @@ def get_company_info(code):
       "证券类别": "上交所主板A股",
       "上市交易所": "上海证券交易所",
       "所属东财行业": "轻工制造-家具-家具制造",
-      "所属证监会行业": "鲁昌华,张京跃,王文兵",
+      "所属证监会行业": "制造业-家具制造业",
       "总经理": "许帮顺",
       "法人代表": "孙志勇",
       "董秘": "孙娟",
@@ -165,4 +165,5 @@ def get_company_info(code):
 
 
 if __name__ == '__main__':
-    print(json_util.format_json(get_list().to_dict()))
+    # print(json_util.format_json(get_list().to_dict()))
+    print(json_util.format_json(get_company_info('688092')))

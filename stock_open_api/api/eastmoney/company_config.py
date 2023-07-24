@@ -67,7 +67,7 @@ company_key_map = [
     },
     {
         "title": "所属证监会行业",
-        "key": "INDEDIRECTORS",
+        "key": "INDUSTRYCSRC1",
     },
     {
         "title": "总经理",
