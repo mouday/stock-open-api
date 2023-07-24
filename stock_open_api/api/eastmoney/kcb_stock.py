@@ -5,7 +5,7 @@
 科创板相关接口
 """
 
-from stock_open_api.api.eastmoney import kcb_stock_config, sz_stock
+from stock_open_api.api.eastmoney import kcb_stock_config, sh_stock
 from stock_open_api.items.list_item import ListItem
 from stock_open_api.utils import time_util, request_util, json_util
 
@@ -161,7 +161,7 @@ def get_company_info(code):
     }
 
     """
-    return sz_stock.get_company_info(code)
+    return sh_stock.get_company_info(code)
 
 
 if __name__ == '__main__':
