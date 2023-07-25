@@ -1,3 +1,6 @@
+- v0.0.9(2023-07-25)
+    - 新增 同花顺数据源
+
 - v0.0.8(2023-07-24)
     - 修复 fix: AttributeError: 'NoneType' object has no attribute 'split'
     - 完善 测试和发布
