@@ -42,3 +42,9 @@ install-require:
 .PHONY: fix
 fix:
 	git add . && git commit -m 'fix' && git push
+
+# 更新文档
+.PHONY: update-doc
+update-doc:
+	cd ./doc && sphinx-apidoc -f -o ./source ../stock_open_api/ && cd ../
+
