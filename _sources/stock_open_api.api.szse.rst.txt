@@ -1,0 +1,21 @@
+stock\_open\_api.api.szse package
+=================================
+
+Submodules
+----------
+
+stock\_open\_api.api.szse.sz\_stock module
+------------------------------------------
+
+.. automodule:: stock_open_api.api.szse.sz_stock
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: stock_open_api.api.szse
+   :members:
+   :undoc-members:
+   :show-inheritance:

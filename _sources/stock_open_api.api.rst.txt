@@ -11,6 +11,7 @@ Subpackages
    stock_open_api.api.eastmoney
    stock_open_api.api.jqka
    stock_open_api.api.sse
+   stock_open_api.api.szse
 
 Module contents
 ---------------
