@@ -8,6 +8,8 @@
 import os
 import sys
 
+from recommonmark.parser import CommonMarkParser
+
 sys.path.insert(0, os.path.abspath('../../'))
 
 project = 'Stock Open Api'
@@ -28,6 +30,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.napoleon',
     'sphinx.ext.githubpages',
+    'sphinx_markdown_tables',
 ]
 
 templates_path = ['_templates']
@@ -41,3 +44,9 @@ language = 'zh_cn'
 # html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+
+source_parsers = {
+    '.md': CommonMarkParser,
+}
+
+source_suffix = ['.rst', '.md']

@@ -3,7 +3,7 @@
 @File    : __init__.py.py
 @Date    : 2023-07-17
 
-上海证券交易所（以下简称上交所）
+上海证券交易所（上交所）
 
 行情报表
 http://www.sse.com.cn/market/price/report/

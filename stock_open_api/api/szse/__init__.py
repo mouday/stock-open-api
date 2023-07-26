@@ -3,6 +3,6 @@
 @File    : __init__.py.py
 @Date    : 2023-07-25
 
-同花顺
-https://www.10jqka.com.cn/
+深圳证券交易所（深交所）
+http://www.szse.cn/
 """
