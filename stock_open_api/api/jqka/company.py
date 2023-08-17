@@ -16,7 +16,11 @@ def get_company_info(code):
 
     eg:
 
-    查看页面：http://stockpage.10jqka.com.cn/300763/company
+    查看页面：
+
+    - 个股 http://stockpage.10jqka.com.cn/300763/company
+    - 港股 http://stockpage.10jqka.com.cn/HK0700/company/
+    - 美股 http://stockpage.10jqka.com.cn/TME/company/
 
     实际数据页面：http://basic.10jqka.com.cn/300763/company.html
 
