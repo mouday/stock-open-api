@@ -8,7 +8,7 @@
 def list_iterator(list_function, *args, **kwargs):
     """
     列表迭代器
-    :param list_function:
+    :param list_function: (page, *args, **kwargs)
     :return: list[ListItem]
     """
     page = 0

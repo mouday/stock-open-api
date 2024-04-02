@@ -6,4 +6,3 @@ twine
 pytest
 packaging
 environs
-pytest

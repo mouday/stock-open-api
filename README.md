@@ -106,6 +106,13 @@ if __name__ == '__main__':
 | [深圳A股-基本资料+发行相关](http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&code=sh603801) | api/eastmoney/sz_stock.get_company_info |
 | [上证A股-基本资料+发行相关](http://emweb.securities.eastmoney.com/PC_HSF10/CompanySurvey/Index?type=web&code=sh603801) | api/eastmoney/sh_stock.get_company_info |
 
+数据源：犀牛之星 [https://www.ipo3.com/](https://www.ipo3.com/)
+
+| 数据 | 方法名 |
+| - | - | 
+| [股票详情](https://www.ipo3.com/company-show/stock_code-430510.html) | api/ipo3/neeq_stock.get_company_info |
+
+
 ## 升级记录 
  
 [CHANGELOG.md](https://github.com/mouday/stock-open-api/blob/master/CHANGELOG.md)
@@ -120,3 +127,6 @@ if __name__ == '__main__':
     - github: [https://github.com/waditu/tushare](https://github.com/waditu/tushare)
     - doc: [http://tushare.org/index.html](http://tushare.org/index.html)
     - pro doc: [https://tushare.pro/](https://tushare.pro/)
+
+- OpenAPI 量化接口
+    - https://openapi.futunn.com/futu-api-doc/
