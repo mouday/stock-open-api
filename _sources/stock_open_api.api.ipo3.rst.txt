@@ -1,0 +1,21 @@
+stock\_open\_api.api.ipo3 package
+=================================
+
+Submodules
+----------
+
+stock\_open\_api.api.ipo3.neeq\_stock module
+--------------------------------------------
+
+.. automodule:: stock_open_api.api.ipo3.neeq_stock
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: stock_open_api.api.ipo3
+   :members:
+   :undoc-members:
+   :show-inheritance:

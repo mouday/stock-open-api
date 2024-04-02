@@ -9,6 +9,7 @@ Subpackages
 
    stock_open_api.api.bse
    stock_open_api.api.eastmoney
+   stock_open_api.api.ipo3
    stock_open_api.api.jqka
    stock_open_api.api.sse
    stock_open_api.api.szse
