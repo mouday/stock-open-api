@@ -129,4 +129,4 @@ if __name__ == '__main__':
     - pro doc: [https://tushare.pro/](https://tushare.pro/)
 
 - OpenAPI 量化接口
-    - https://openapi.futunn.com/futu-api-doc/
+    - doc: [https://openapi.futunn.com/futu-api-doc/](https://openapi.futunn.com/futu-api-doc/)
