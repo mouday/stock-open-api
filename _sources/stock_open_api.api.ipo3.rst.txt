@@ -4,6 +4,14 @@ stock\_open\_api.api.ipo3 package
 Submodules
 ----------
 
+stock\_open\_api.api.ipo3.config module
+---------------------------------------
+
+.. automodule:: stock_open_api.api.ipo3.config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 stock\_open\_api.api.ipo3.neeq\_stock module
 --------------------------------------------
 

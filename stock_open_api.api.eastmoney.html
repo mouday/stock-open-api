@@ -75,7 +75,12 @@
 <li><a class="reference internal" href="#stock_open_api.api.eastmoney.sz_stock.get_company_info"><code class="docutils literal notranslate"><span class="pre">get_company_info()</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#stock-open-api-api-eastmoney-us-chinese-stock-module">stock_open_api.api.eastmoney.us_chinese_stock module</a></li>
+<li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.us_chinese_stock">stock_open_api.api.eastmoney.us_chinese_stock module</a><ul>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.us_chinese_stock.get_list"><code class="docutils literal notranslate"><span class="pre">get_list()</span></code></a></li>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.us_chinese_stock.get_org_profile"><code class="docutils literal notranslate"><span class="pre">get_org_profile()</span></code></a></li>
+<li><a class="reference internal" href="#stock_open_api.api.eastmoney.us_chinese_stock.get_security_info"><code class="docutils literal notranslate"><span class="pre">get_security_info()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-stock_open_api.api.eastmoney.us_chinese_stock_config">stock_open_api.api.eastmoney.us_chinese_stock_config module</a></li>
 <li><a class="reference internal" href="#module-stock_open_api.api.eastmoney">Module contents</a></li>
 </ul>
@@ -640,8 +645,122 @@
 </dd></dl>
 
 </section>
-<section id="stock-open-api-api-eastmoney-us-chinese-stock-module">
-<h2>stock_open_api.api.eastmoney.us_chinese_stock module<a class="headerlink" href="#stock-open-api-api-eastmoney-us-chinese-stock-module" title="此标题的永久链接"></a></h2>
+<section id="module-stock_open_api.api.eastmoney.us_chinese_stock">
+<span id="stock-open-api-api-eastmoney-us-chinese-stock-module"></span><h2>stock_open_api.api.eastmoney.us_chinese_stock module<a class="headerlink" href="#module-stock_open_api.api.eastmoney.us_chinese_stock" title="此标题的永久链接"></a></h2>
+<p>&#64;File    : us_chinese_stock.py
+&#64;Date    : 2023-07-17
+中国概念股相关接口</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.us_chinese_stock.get_list">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.us_chinese_stock.</span></span><span class="sig-name descname"><span class="pre">get_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">page</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.us_chinese_stock.get_list" title="永久链接至目标"></a></dt>
+<dd><p>中国概念股 列表</p>
+<p>东方财富网 &gt; 行情中心 &gt; 美股市场 &gt; 中国概念股
+<a class="reference external" href="http://quote.eastmoney.com/center/gridlist.html#us_chinese">http://quote.eastmoney.com/center/gridlist.html#us_chinese</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>page</strong> – int</p></li>
+<li><p><strong>size</strong> – int</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="stock_open_api.items.html#stock_open_api.items.list_item.ListItem" title="stock_open_api.items.list_item.ListItem">ListItem</a></p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_list</span><span class="p">()</span>
+<span class="go">{</span>
+<span class="go">  &quot;total&quot;: 384,</span>
+<span class="go">  &quot;items&quot;: [</span>
+<span class="go">    {</span>
+<span class="go">      &quot;代码&quot;: &quot;PWM&quot;,</span>
+<span class="go">      &quot;名称&quot;: &quot;盛德财富&quot;,</span>
+<span class="go">      &quot;最新价(美元)&quot;: 17.0,</span>
+<span class="go">      &quot;涨跌额&quot;: 5.33,</span>
+<span class="go">      &quot;涨跌幅&quot;: 45.67,</span>
+<span class="go">      &quot;开盘价&quot;: 10.5,</span>
+<span class="go">      &quot;最高价&quot;: 19.5,</span>
+<span class="go">      &quot;最低价&quot;: 10.5,</span>
+<span class="go">      &quot;昨收价&quot;: 11.67,</span>
+<span class="go">      &quot;总市值(美元)&quot;: 153000000,</span>
+<span class="go">      &quot;市盈率&quot;: 112.95</span>
+<span class="go">    }</span>
+<span class="go">  ]</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.us_chinese_stock.get_org_profile">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.us_chinese_stock.</span></span><span class="sig-name descname"><span class="pre">get_org_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.us_chinese_stock.get_org_profile" title="永久链接至目标"></a></dt>
+<dd><p>中国概念股 公司资料</p>
+<p><a class="reference external" href="http://emweb.eastmoney.com/PC_USF10/pages/index.html?code=PWM&amp;type=web&amp;color=w#/gsgk/gszl">http://emweb.eastmoney.com/PC_USF10/pages/index.html?code=PWM&amp;type=web&amp;color=w#/gsgk/gszl</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> – str eg: PWM</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_org_profile</span><span class="p">(</span><span class="s1">&#39;PWM&#39;</span><span class="p">)</span>
+<span class="go">{</span>
+<span class="go">  &quot;证券代码&quot;: &quot;PWM.O&quot;,</span>
+<span class="go">  &quot;公司名称&quot;: &quot;Prestige Wealth Inc.&quot;,</span>
+<span class="go">  &quot;中文名称&quot;: &quot;盛德财富有限公司&quot;,</span>
+<span class="go">  &quot;注册地址&quot;: null,</span>
+<span class="go">  &quot;成立日期&quot;: &quot;2018-10-25&quot;,</span>
+<span class="go">  &quot;所属行业&quot;: &quot;投资银行业与经纪业&quot;,</span>
+<span class="go">  &quot;主席&quot;: &quot;Hongtao Shi(师鸿涛)&quot;,</span>
+<span class="go">  &quot;员工人数&quot;: 6,</span>
+<span class="go">  &quot;办公地址&quot;: &quot;香港中环皇后大道中2号长江集团中心51楼5102室&quot;,</span>
+<span class="go">  &quot;公司网址&quot;: &quot;www.prestigewealthinc.com&quot;,</span>
+<span class="go">  &quot;E-MAIL&quot;: null,</span>
+<span class="go">  &quot;电话号码&quot;: &quot;+852 2122-8560&quot;,</span>
+<span class="go">  &quot;传真号码&quot;: &quot;+852 2122 8589&quot;,</span>
+<span class="go">  &quot;公司介绍&quot;: &quot;盛德财富有限公司是一家在开曼群岛注册成立的境外控股母公司,主要由其境内实体子公司Prestige Financial Holdings Group Limited运营。盛德财富有限公司(“PWI”,或“公司”)是一家于2018年10月25日根据开曼群岛法律成立的有限公司。该公司通过其子公司向高净值和超高净值个人和企业提供私人财富管理服务和资产管理。&quot;</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="stock_open_api.api.eastmoney.us_chinese_stock.get_security_info">
+<span class="sig-prename descclassname"><span class="pre">stock_open_api.api.eastmoney.us_chinese_stock.</span></span><span class="sig-name descname"><span class="pre">get_security_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stock_open_api.api.eastmoney.us_chinese_stock.get_security_info" title="永久链接至目标"></a></dt>
+<dd><p>中国概念股 证券资料</p>
+<p>数据源：<a class="reference external" href="http://emweb.eastmoney.com/PC_USF10/pages/index.html?code=PWM&amp;type=web&amp;color=w#/gsgk/zqzl">http://emweb.eastmoney.com/PC_USF10/pages/index.html?code=PWM&amp;type=web&amp;color=w#/gsgk/zqzl</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> – str eg: PWM.O</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>通过 get_org_profile() 的`证券代码` 字段获取</p></li>
+<li><p>eg: “证券代码”: “PWM.O”</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_security_info</span><span class="p">(</span><span class="s1">&#39;PWM.O&#39;</span><span class="p">)</span>
+<span class="go">{</span>
+<span class="go">  &quot;证券代码&quot;: &quot;PWM&quot;,</span>
+<span class="go">  &quot;上市日期&quot;: &quot;2023-07-06&quot;,</span>
+<span class="go">  &quot;证券类型&quot;: &quot;美股&quot;,</span>
+<span class="go">  &quot;上市场所&quot;: &quot;NASDAQ&quot;,</span>
+<span class="go">  &quot;ISIN&quot;: &quot;KYG7244A1013&quot;,</span>
+<span class="go">  &quot;每股面值&quot;: &quot;0.000625 USD&quot;,</span>
+<span class="go">  &quot;ADS折算比&quot;: null,</span>
+<span class="go">  &quot;年结日&quot;: &quot;09-30&quot;</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </section>
 <section id="module-stock_open_api.api.eastmoney.us_chinese_stock_config">
 <span id="stock-open-api-api-eastmoney-us-chinese-stock-config-module"></span><h2>stock_open_api.api.eastmoney.us_chinese_stock_config module<a class="headerlink" href="#module-stock_open_api.api.eastmoney.us_chinese_stock_config" title="此标题的永久链接"></a></h2>
