@@ -185,6 +185,12 @@ def get_company_info(stock_code, english_key=False):
         elif key == '新闻资讯':
             data[key] = parse_news_list(value)
 
+    # replace '-' to ''
+    for key in data:
+        if isinstance(data[key], str):
+            if data[key] == '-':
+                data[key] = ''
+
     if english_key:
         return convert_util.convert_key(config.COMPANY_INFO_KEY_MAP, data)
     else:

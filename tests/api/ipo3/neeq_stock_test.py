@@ -11,7 +11,7 @@ from stock_open_api.utils import json_util
 
 class NeeqStockTest(unittest.TestCase):
     def test_get_company_info(self):
-        res = neeq_stock.get_company_info('430510')
+        res = neeq_stock.get_company_info('870783')
         json_util.dump_json(res)
 
     def test_convert_company_info_to_english_key(self):
