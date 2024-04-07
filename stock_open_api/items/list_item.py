@@ -12,6 +12,11 @@ class ListItem(object):
     items = None
     total = 0
 
+    # @since v1.0.5
+    has_next_page = False
+    current_page = 0
+    next_page = 0
+
     def __init__(self):
         self.items = []
 
