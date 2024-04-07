@@ -12,7 +12,7 @@ from stock_open_api.utils import request_util, table_util, convert_util
 from stock_open_api.log import logger
 
 
-def get_company_info(stock_code, english_key=False):
+def get_company_info(stock_code, proxies=None, english_key=False):
     """
     获取股票详情信息
 
@@ -103,7 +103,7 @@ def get_company_info(stock_code, english_key=False):
 
     logger.info("url: %s", url)
 
-    res = request_util.get(url)
+    res = request_util.get(url, proxies=proxies)
 
     sel = Selector(text=res.text)
     stock_name = sel.css('#stockName::text').extract_first('').strip()
