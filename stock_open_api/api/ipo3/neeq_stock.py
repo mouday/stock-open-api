@@ -387,7 +387,7 @@ def get_balance_sheet_list(stock_code, date_type='年报', english_key=False):
     return items
 
 
-def get_cash_flows_statement_list(stock_code, date_type='年报', english_key=False):
+def get_cash_flow_statement_list(stock_code, date_type='年报', english_key=False):
     """
     获取现金流量表
     eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-cash.html#content
@@ -459,7 +459,7 @@ def get_cash_flows_statement_list(stock_code, date_type='年报', english_key=Fa
     items = parse_finance_table(sel)
 
     if english_key:
-        items = [convert_util.convert_key(config.CASH_FLOWS_STATEMENT_KEY_MAP, item) for item in items]
+        items = [convert_util.convert_key(config.CASH_FLOW_STATEMENT_KEY_MAP, item) for item in items]
 
     return items
 

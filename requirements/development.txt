@@ -1,5 +1,6 @@
 -r production.txt
 
+six
 setuptools
 wheel
 twine
