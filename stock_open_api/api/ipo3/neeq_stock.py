@@ -252,12 +252,12 @@ def parse_news_list(value: Selector):
     return lst
 
 
-def get_income_statement_list(stock_code, date_type='年报', english_key=False):
+def get_income_statement_list(stock_code, date_type='年报', english_key=False, proxies=None, timeout=5):
     """
-    获取利润表
+    犀牛之心-财报摘要-利润表
     eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001.html#content
     :param stock_code: str 股票代码
-    :param date_type: str 可选值：年报/中报/一季报/三季报
+    :param date_type: str 可选值：['年报', '中报', '一季报', '三季报']
     :param english_key: bool
     :return:
     [
@@ -300,7 +300,10 @@ def get_income_statement_list(stock_code, date_type='年报', english_key=False)
 
     # eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001.html#content
     url = date_type_map[date_type].format(stock_code=stock_code)
-    res = request_util.get(url)
+
+    logger.info("url: %s", url)
+
+    res = request_util.get(url, proxies=proxies, timeout=timeout)
     sel = Selector(text=res.text)
 
     items = parse_finance_table(sel)
