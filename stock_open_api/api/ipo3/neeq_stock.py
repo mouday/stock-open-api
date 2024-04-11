@@ -316,7 +316,7 @@ def get_income_statement_list(stock_code, date_type='年报', english_key=False,
 
 def get_balance_sheet_list(stock_code, date_type='年报', english_key=False, **kwargs):
     """
-    获取资产负债表
+    犀牛之心-财报摘要-资产负债表
     eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-debt.html#content
     :param stock_code: str 股票代码
     :param date_type: str 可选值：年报/中报/一季报/三季报
@@ -376,13 +376,16 @@ def get_balance_sheet_list(stock_code, date_type='年报', english_key=False, **
 
     # eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-debt.html#content
     url = date_type_map[date_type].format(stock_code=stock_code)
+
+    logger.info("url: %s", url)
+
     res = request_util.get(url, **kwargs)
     sel = Selector(text=res.text)
 
     items = parse_finance_table(sel)
 
     if english_key:
-        items = [convert_util.convert_key(config.INCOME_STATEMENT_KEY_MAP, item) for item in items]
+        items = [convert_util.convert_key(config.BALANCE_SHEET_KEY_MAP, item) for item in items]
 
     return items
 
