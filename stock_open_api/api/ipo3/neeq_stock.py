@@ -12,7 +12,7 @@ from stock_open_api.utils import request_util, table_util, convert_util
 from stock_open_api.log import logger
 
 
-def get_company_info(stock_code, proxies=None, english_key=False, timeout=3):
+def get_company_info(stock_code, english_key=False, **kwargs):
     """
     获取股票详情信息
 
@@ -105,7 +105,7 @@ def get_company_info(stock_code, proxies=None, english_key=False, timeout=3):
 
     logger.info("url: %s", url)
 
-    res = request_util.get(url, proxies=proxies, timeout=timeout)
+    res = request_util.get(url, **kwargs)
 
     sel = Selector(text=res.text)
     stock_name = sel.css('#stockName::text').extract_first('').strip()
@@ -252,7 +252,7 @@ def parse_news_list(value: Selector):
     return lst
 
 
-def get_income_statement_list(stock_code, date_type='年报', english_key=False, proxies=None, timeout=5):
+def get_income_statement_list(stock_code, date_type='年报', english_key=False, **kwargs):
     """
     犀牛之心-财报摘要-利润表
     eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001.html#content
@@ -303,7 +303,7 @@ def get_income_statement_list(stock_code, date_type='年报', english_key=False,
 
     logger.info("url: %s", url)
 
-    res = request_util.get(url, proxies=proxies, timeout=timeout)
+    res = request_util.get(url, **kwargs)
     sel = Selector(text=res.text)
 
     items = parse_finance_table(sel)
@@ -314,7 +314,7 @@ def get_income_statement_list(stock_code, date_type='年报', english_key=False,
     return items
 
 
-def get_balance_sheet_list(stock_code, date_type='年报', english_key=False):
+def get_balance_sheet_list(stock_code, date_type='年报', english_key=False, **kwargs):
     """
     获取资产负债表
     eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-debt.html#content
@@ -376,7 +376,7 @@ def get_balance_sheet_list(stock_code, date_type='年报', english_key=False):
 
     # eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-debt.html#content
     url = date_type_map[date_type].format(stock_code=stock_code)
-    res = request_util.get(url)
+    res = request_util.get(url, **kwargs)
     sel = Selector(text=res.text)
 
     items = parse_finance_table(sel)
@@ -387,7 +387,7 @@ def get_balance_sheet_list(stock_code, date_type='年报', english_key=False):
     return items
 
 
-def get_cash_flow_statement_list(stock_code, date_type='年报', english_key=False):
+def get_cash_flow_statement_list(stock_code, date_type='年报', english_key=False, **kwargs):
     """
     获取现金流量表
     eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-cash.html#content
@@ -453,7 +453,7 @@ def get_cash_flow_statement_list(stock_code, date_type='年报', english_key=Fal
 
     # eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-cash.html#content
     url = date_type_map[date_type].format(stock_code=stock_code)
-    res = request_util.get(url)
+    res = request_util.get(url, **kwargs)
     sel = Selector(text=res.text)
 
     items = parse_finance_table(sel)
@@ -464,7 +464,7 @@ def get_cash_flow_statement_list(stock_code, date_type='年报', english_key=Fal
     return items
 
 
-def get_financial_analysis_list(stock_code, date_type='年报', english_key=False):
+def get_financial_analysis_list(stock_code, date_type='年报', english_key=False, **kwargs):
     """
     获取财务分析表
     eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-analysis.html#content
@@ -571,7 +571,7 @@ def get_financial_analysis_list(stock_code, date_type='年报', english_key=Fals
 
     # eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-analysis.html#content
     url = date_type_map[date_type].format(stock_code=stock_code)
-    res = request_util.get(url)
+    res = request_util.get(url, **kwargs)
     sel = Selector(text=res.text)
 
     items = parse_finance_table(sel)

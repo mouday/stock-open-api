@@ -34,7 +34,6 @@ class NeeqStockTest(unittest.TestCase):
         res = neeq_stock.get_balance_sheet_list('430510', english_key=True)
         json_util.dump_json(res)
 
-
     def test_get_cash_flow_statement_list(self):
         res = neeq_stock.get_cash_flow_statement_list('430510')
         json_util.dump_json(res)
@@ -43,10 +42,10 @@ class NeeqStockTest(unittest.TestCase):
         res = neeq_stock.get_cash_flow_statement_list('430510', english_key=True)
         json_util.dump_json(res)
 
-
     def test_get_financial_analysis_list(self):
-        res = neeq_stock.get_financial_analysis_list('430510')
+        res = neeq_stock.get_financial_analysis_list('430510', english_key=True)
         json_util.dump_json(res)
 
-
-
+    def test_get_financial_analysis_list_to_english_key(self):
+        res = neeq_stock.get_financial_analysis_list('430510', english_key=True)
+        json_util.dump_json(res)
