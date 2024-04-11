@@ -392,7 +392,7 @@ def get_balance_sheet_list(stock_code, date_type='年报', english_key=False, **
 
 def get_cash_flow_statement_list(stock_code, date_type='年报', english_key=False, **kwargs):
     """
-    获取现金流量表
+    犀牛之心-财报摘要-现金流量表
     eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-cash.html#content
     :param stock_code: str 股票代码
     :param date_type: str 可选值：年报/中报/一季报/三季报
@@ -456,6 +456,9 @@ def get_cash_flow_statement_list(stock_code, date_type='年报', english_key=Fal
 
     # eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-cash.html#content
     url = date_type_map[date_type].format(stock_code=stock_code)
+
+    logger.info("url: %s", url)
+
     res = request_util.get(url, **kwargs)
     sel = Selector(text=res.text)
 
@@ -469,7 +472,7 @@ def get_cash_flow_statement_list(stock_code, date_type='年报', english_key=Fal
 
 def get_financial_analysis_list(stock_code, date_type='年报', english_key=False, **kwargs):
     """
-    获取财务分析表
+    犀牛之心-财报摘要-财务分析表
     eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-analysis.html#content
     :param stock_code: str 股票代码
     :param date_type: str 可选值：年报/中报/一季报/三季报
@@ -574,6 +577,9 @@ def get_financial_analysis_list(stock_code, date_type='年报', english_key=Fals
 
     # eg: https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-analysis.html#content
     url = date_type_map[date_type].format(stock_code=stock_code)
+
+    logger.info("url: %s", url)
+
     res = request_util.get(url, **kwargs)
     sel = Selector(text=res.text)
 
