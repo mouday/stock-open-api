@@ -57,3 +57,31 @@ class NeeqStockTest(unittest.TestCase):
     def test_get_stock_fund_list_to_english_key(self):
         res = neeq_stock.get_stock_fund_list('830936', english_key=True)
         json_util.dump_json(res)
+
+    def test_get_stock_trade_list(self):
+        res = neeq_stock.get_stock_trade_list('830936')
+        json_util.dump_json(res)
+
+    def test_get_stock_trade_list_to_english_key(self):
+        res = neeq_stock.get_stock_trade_list('830936', english_key=True)
+        json_util.dump_json(res)
+
+    def test_get_stock_event_list_to_english_key(self):
+        res = neeq_stock.get_stock_event_list('830936', english_key=True)
+        json_util.dump_json(res)
+
+    def test_get_stock_event_list(self):
+        res = neeq_stock.get_stock_event_list('830936')
+        json_util.dump_json(res)
+
+    def test_get_stock_notice_list(self):
+        res = neeq_stock.get_stock_notice_list('830936')
+        json_util.dump_json(res.to_dict())
+
+    def test_get_stock_survey(self):
+        res = neeq_stock.get_stock_survey('830936')
+        json_util.dump_json(res)
+
+    def test_get_stock_survey_to_english_key(self):
+        res = neeq_stock.get_stock_survey('830936', english_key=True)
+        json_util.dump_json(res)

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@File    : ListItem.py
+@File    : list_item.py
 @Date    : 2023-07-17
 """
 
@@ -22,6 +22,9 @@ class ListItem(object):
 
     def to_dict(self):
         return {
-            'items': self.items,
             'total': self.total,
+            'has_next_page': self.has_next_page,
+            'current_page': self.current_page,
+            'next_page': self.next_page,
+            'items': self.items,
         }

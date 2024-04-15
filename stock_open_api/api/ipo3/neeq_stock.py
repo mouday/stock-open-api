@@ -8,7 +8,8 @@ import re
 from parsel import Selector
 
 from stock_open_api.api.ipo3 import config
-from stock_open_api.utils import request_util, table_util, convert_util
+from stock_open_api.items import list_item
+from stock_open_api.utils import request_util, table_util, convert_util, url_util
 from stock_open_api.log import logger
 
 
@@ -711,3 +712,229 @@ def parse_fund_table(sel: Selector):
         lst.append(item)
 
     return lst
+
+
+def get_stock_trade_list(stock_code, english_key=False, **kwargs):
+    """
+    犀牛之心-交易明细
+    https://www.ipo3.com/company-show/stock-430577-tab-trade.html#content
+
+    :param english_key:
+    :param stock_code:
+    :param kwargs:
+    :return:
+    eg:
+    [
+      {
+        "交易日期": "2022-07-18",
+        "总成交额（元）": "6.10万元",
+        "成交价格（元）": "0.61元",
+        "成交数量（股）": "100000股",
+        "买方账号名称": "",
+        "买方主办券商": "长江证券股份有限公司武汉友谊路证券营业部",
+        "卖方账号名称": "",
+        "卖方主办券商": "长江证券股份有限公司武汉友谊路证券营业部"
+      }
+    ]
+    """
+
+    url = 'https://www.ipo3.com/company-show/stock-{stock_code}-tab-trade.html#content'.format(stock_code=stock_code)
+
+    logger.info("url: %s", url)
+
+    res = request_util.get(url, **kwargs)
+
+    sel = Selector(text=res.text)
+
+    items = []
+    for title_div, main_div in zip(sel.css('#J_trade_main .nr_btd'), sel.css('#J_trade_main .surveyBox')):
+        trade_date = title_div.css('span:nth-child(1)::text').extract_first('').strip()
+        trade_money = title_div.css('span.fr::text').extract_first('').strip()
+
+        item = {
+            '交易日期': trade_date,
+        }
+
+        # 总成交额（元）
+        key, value = trade_money.split('：')
+        item[key.strip()] = value.strip()
+
+        for tr in main_div.css('tr'):
+            k = tr.css('th::text').extract_first('').strip()
+            v = tr.css('td::text').extract_first('').strip()
+            item[k] = v
+
+        items.append(item)
+
+    if english_key:
+        items = [convert_util.convert_key(config.STOCK_TRADE_KEY_MAP, item) for item in items]
+
+    return items
+
+
+def get_stock_event_list(stock_code, english_key=False, **kwargs):
+    """
+    犀牛之心-最新公告-大事提醒
+    https://www.ipo3.com/company-show/stock-430577-tab-notice.html#notice1
+
+    :param english_key:
+    :param stock_code:
+    :param kwargs:
+    :return:
+    eg:
+    [
+      {
+        "事件日期": "2024-04-26",
+        "事件类型": "预约披露",
+        "事件标题": "将于2024-04-26披露《2023年年报》"
+      }
+    ]
+    """
+
+    url = 'https://www.ipo3.com/company-show/stock-{stock_code}-tab-notice.html#notice1'.format(stock_code=stock_code)
+
+    logger.info("url: %s", url)
+
+    res = request_util.get(url, **kwargs)
+
+    sel = Selector(text=res.text)
+
+    items = []
+    for event_item in sel.css('.event-list .event-item'):
+        event_date = event_item.css('.fl::text').extract_first('').strip()
+        tag, title = [v.strip() for v in event_item.css('.event-tag i::text').extract()]
+
+        item = {
+            '事件日期': event_date,
+            '事件类型': tag,
+            '事件标题': title,
+        }
+
+        items.append(item)
+
+    if english_key:
+        items = [convert_util.convert_key(config.STOCK_NOTICE_KEY_MAP, item) for item in items]
+
+    return items
+
+
+def get_stock_notice_list(stock_code, page=1, **kwargs):
+    """
+    犀牛之心-最新公告-最新公告
+    https://www.ipo3.com/company-show/stock-430577-tab-notice.html#notice2
+
+    :param page:
+    :param stock_code:
+    :param kwargs:
+    :return:
+    eg:
+    {
+      "total": 0,
+      "has_next_page": true,
+      "current_page": 1,
+      "next_page": 2,
+      "items": [
+        {
+          "id": "3314943",
+          "title": "约克动漫:股份冻结的公告（补发）",
+          "down_url": "https://www.neeq.com.cn/disclosure/2024/2024-04-09/eea09e2254a04e9ea34c1e9d87869212.pdf",
+          "original_file_url": "",
+          "status": "0",
+          "time": "2024-04-09",
+          "type": "notice",
+          "attr": "normal",
+          "detail_url": "https://www.ipo3.com/company-noticed/id-3314943.html",
+          "is_collect": 0,
+          "share_url": "https://www.ipo3.com/wap/index.php?ctl=company&act=notice&id=3314943"
+        }
+      ]
+    }
+    """
+    base_url = 'https://www.ipo3.com/'
+
+    url = 'https://www.ipo3.com/company-notice_ajax/stock_code-{stock_code}-p-{page}.html'.format(
+        stock_code=stock_code,
+        page=page
+    )
+
+    logger.info("url: %s", url)
+
+    res = request_util.get(url, **kwargs)
+    data = res.json().get('data')
+
+    def handle_row(row):
+        row['detail_url'] = url_util.url_join(base_url, row['detail_url'])
+
+        return row
+
+    # 翻页参数
+    res = list_item.ListItem()
+
+    res.items = [handle_row(row) for row in data.get('lists')]
+
+    res.current_page = page
+    res.next_page = page + 1
+    res.has_next_page = data.get('has_more') == 1
+
+    return res
+
+
+def get_stock_survey(stock_code, english_key=False, **kwargs):
+    """
+    犀牛之心-最新公告-定增计划
+    https://www.ipo3.com/company-show/stock-430577-tab-notice.html#notice2
+
+    :param page:
+    :param stock_code:
+    :param kwargs:
+    :return:
+    eg:
+    {
+      "融资进度": "董事会通过",
+      "融资金额": "1.61亿",
+      "出让股份": "950.00万",
+      "每股价格": "15.00~0.00",
+      "最新公告日": "2022年06月16日",
+      "预案公告日": "2022年05月27日",
+      "董秘": "方烈",
+      "董秘电话": "0571-64242798",
+      "董秘邮箱": "zqb@zj-tiansong.com",
+      "行业分类": "微创医疗器械",
+      "主办券商": "开源证券",
+      "增发对象": "",
+      "增发目的": "项目融资 本次发行募集资金在扣除相关费用后,拟用于公司主营业务相关的项目,其中:产能升级改造项目预计投资金额为8,853万元,拟使用募集资金金额8,853万元;研发中心建设项目预计投资金额为5,825万元,拟使用募集资金金额5,146万元;营销中心建设项目预计投资金额为2,553万元,拟使用募集资金金额2,147万元。"
+    }
+    """
+
+    url = 'https://www.ipo3.com/company-show/stock-{stock_code}-tab-survey.html#content'.format(
+        stock_code=stock_code,
+    )
+
+    logger.info("url: %s", url)
+
+    res = request_util.get(url, **kwargs)
+
+    sel = Selector(text=res.text)
+
+    item = {}
+
+    # 融资进度：董事会通过
+    # 董事会通过 -> 股东大会通过 -> 证监会批准 -> 实施完成
+    key, value = [v.strip() for v in sel.css('#content .nr_btd span::text').extract_first('').split('：')]
+    item[key] = value
+
+    for board_item in sel.css('#content .boards .board-item'):
+        v = board_item.css('p::text').extract_first('').strip()
+        k = board_item.css('span::text').extract_first('').strip()
+
+        item[k] = v
+
+    for tr in sel.css('#content table tr'):
+        k = tr.css('th::text').extract_first('').strip()
+        v = tr.css('td::text').extract_first('').strip()
+        item[k] = v
+
+    if english_key:
+        item = convert_util.convert_key(config.STOCK_SURVEY_KEY_MAP, item)
+
+    return item

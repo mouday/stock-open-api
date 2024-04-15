@@ -318,3 +318,39 @@ STOCK_FUND_KEY_MAP = {
         }
     }
 }
+
+# 犀牛之心-交易明细
+STOCK_TRADE_KEY_MAP = {
+    "交易日期": "trade_date",
+    "总成交额（元）": "total_trade_amount",
+    "成交价格（元）": "trade_price",
+    "成交数量（股）": "trade_quantity",
+    "买方账号名称": "buyer_name",
+    "买方主办券商": "buyer_broker",
+    "卖方账号名称": "seller_name",
+    "卖方主办券商": "seller_broker"
+}
+
+# 犀牛之心-最新公告-大事提醒
+STOCK_NOTICE_KEY_MAP = {
+    "事件日期": "event_date",
+    "事件类型": "event_type",
+    "事件标题": "title"
+}
+
+# 犀牛之心-最新公告-定增计划
+STOCK_SURVEY_KEY_MAP = {
+      "融资进度": "financing_progress",
+      "融资金额": "financing_money",
+      "出让股份": "transfer_of_shares",
+      "每股价格": "price_per_share",
+      "最新公告日": "latest_announcement_date",
+      "预案公告日": "plan_announcement_date",
+      "董秘": "company_secretary",
+      "董秘电话": "company_secretary_phone",
+      "董秘邮箱": "company_secretary_email",
+      "行业分类": "industry",
+      "主办券商": "broker",
+      "增发对象": "additional_issuance_target",
+      "增发目的": "purpose_of_issuance"
+}
