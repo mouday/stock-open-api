@@ -115,6 +115,7 @@ if __name__ == '__main__':
 | [资产负债表](https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-debt.html#content) | api/ipo3/neeq_stock.get_balance_sheet_list |
 | [现金流量表](https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-cash.html#content) | api/ipo3/neeq_stock.get_cash_flows_statement_list |
 | [财务分析表](https://www.ipo3.com/company-show/stock_code-430510-tab-finance-date_type-001-type-analysis.html#content) | api/ipo3/neeq_stock.get_financial_analysis_list |
+| [募资明细](https://www.ipo3.com/company-show/stock-830936-tab-fund.html#content) | api/ipo3/neeq_stock.get_stock_fund_list |
 
 
 ## 升级记录 

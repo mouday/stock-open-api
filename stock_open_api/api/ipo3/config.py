@@ -298,3 +298,23 @@ FINANCIAL_ANALYSIS_KEY_MAP = {
     "经营活动产生的现金流量净额/经营活动净收益(%)": "net_cash_flow_generated_from_operating_activities_division_net_income_from_operating_activities",
     "资本支出/折旧摊销(%)": "capital_expenditure_division_depreciation_and_amortization"
 }
+
+# 犀牛之心-募资明细
+STOCK_FUND_KEY_MAP = {
+    "募资日期": "fund_date",
+    "募资类型": "fund_type",
+    "募集资金": "fund_money",
+    "增发数量": "additional_issuance_quantity",
+    "增发价格": "additional_issuance_price",
+    "投资人列表": {
+        'value': "investor_list",
+        'children': {
+            "投资者": "investor",
+            "类型": "investor_type",
+            "是否为公司高管": "is_company_executive",
+            "持股数": "number_of_shares_held",
+            "投资额（元）": "investment_amount",
+            "锁定状态": "locked_state"
+        }
+    }
+}

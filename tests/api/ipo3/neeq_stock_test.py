@@ -49,3 +49,11 @@ class NeeqStockTest(unittest.TestCase):
     def test_get_financial_analysis_list_to_english_key(self):
         res = neeq_stock.get_financial_analysis_list('430510', english_key=True)
         json_util.dump_json(res)
+
+    def test_get_stock_fund_list(self):
+        res = neeq_stock.get_stock_fund_list('830936')
+        json_util.dump_json(res)
+
+    def test_get_stock_fund_list_to_english_key(self):
+        res = neeq_stock.get_stock_fund_list('830936', english_key=True)
+        json_util.dump_json(res)

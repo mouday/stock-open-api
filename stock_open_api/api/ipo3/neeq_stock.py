@@ -619,3 +619,95 @@ def parse_finance_table(sel):
         items.append(item)
 
     return items
+
+
+def get_stock_fund_list(stock_code, english_key=False, **kwargs):
+    """
+    犀牛之心-募资明细
+    https://www.ipo3.com/company-show/stock-830936-tab-fund.html#content
+
+    :param english_key:
+    :param stock_code:
+    :param kwargs:
+    :return:
+    eg:
+    [
+      {
+        "募资日期": "2017年08月29日",
+        "募资类型": "正式",
+        "募集资金": "5,700.00万",
+        "增发数量": "1,500.00万",
+        "增发价格": "3.800",
+        "投资人列表": [
+          {
+            "投资者": "上海瓜牛投资管理中心(有限合伙)-瓜牛的梦想证券投资基金",
+            "类型": "非控股股东",
+            "是否为公司高管": "否",
+            "持股数": "16.60万",
+            "投资额（元）": "63.08万",
+            "锁定状态": "锁定期为12个月"
+          },
+        ]
+      }
+    ]
+    """
+
+    url = 'https://www.ipo3.com/company-show/stock-{stock_code}-tab-fund.html'.format(stock_code=stock_code)
+
+    logger.info("url: %s", url)
+
+    res = request_util.get(url, **kwargs)
+
+    sel = Selector(text=res.text)
+    items = []
+    for title, main in zip(sel.css('.lc-title'), sel.css('.lc-main')):
+        fund_date = title.css('span:nth-child(1)::text').extract_first('').strip()
+        fund_type = title.css('span.fr::text').extract_first('').strip()
+
+        investor_list = parse_fund_table(main.css('table'))
+
+        item = {
+            '募资日期': fund_date,
+            '募资类型': fund_type,
+            '投资人列表': investor_list
+        }
+
+        for board_item in main.css('.boards .board-item'):
+            value = board_item.css('p::text').extract_first('').strip()
+            key = board_item.css('span::text').extract_first('').strip()
+
+            item[key] = value
+
+        items.append(item)
+
+    if english_key:
+        items = [convert_util.convert_key(config.STOCK_FUND_KEY_MAP, item) for item in items]
+
+    return items
+
+
+def parse_fund_table(sel: Selector):
+    """
+    标准表格解析工具
+    :param sel:
+    :return:
+    """
+    lst = []
+
+    # 解析表头
+    headers = [x.xpath('string(.)').extract_first('') for x in sel.css('thead th')]
+
+    # 解析内容
+    for row in sel.css('tbody tr'):
+        item = {}
+
+        for key, value in zip(headers, row.css("td")):
+            if key == '投资者/类型':
+                item['投资者'] = value.css('strong::text').extract_first('').strip()
+                item['类型'] = value.css('span::text').extract_first('').strip()
+            else:
+                item[key] = value.xpath('string(.)').extract_first('').strip()
+
+        lst.append(item)
+
+    return lst
