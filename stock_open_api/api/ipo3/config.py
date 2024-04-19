@@ -338,19 +338,66 @@ STOCK_NOTICE_KEY_MAP = {
     "事件标题": "title"
 }
 
+# 犀牛之心-最新公告-最新公告
+STOCK_NOTICE_KEY_MAP = {
+    "数据id": "id",
+    "公告标题": "title",
+    "公告文件": "down_url",
+    "公告原始文件": "original_file_url",
+    "发布日期": "time",
+    "公告详情": "detail_url"
+}
+
 # 犀牛之心-最新公告-定增计划
 STOCK_SURVEY_KEY_MAP = {
-      "融资进度": "financing_progress",
-      "融资金额": "financing_money",
-      "出让股份": "transfer_of_shares",
-      "每股价格": "price_per_share",
-      "最新公告日": "latest_announcement_date",
-      "预案公告日": "plan_announcement_date",
-      "董秘": "company_secretary",
-      "董秘电话": "company_secretary_phone",
-      "董秘邮箱": "company_secretary_email",
-      "行业分类": "industry",
-      "主办券商": "broker",
-      "增发对象": "additional_issuance_target",
-      "增发目的": "purpose_of_issuance"
+    "融资进度": "financing_progress",
+    "融资金额": "financing_money",
+    "出让股份": "transfer_of_shares",
+    "每股价格": "price_per_share",
+    "最新公告日": "latest_announcement_date",
+    "预案公告日": "plan_announcement_date",
+    "董秘": "company_secretary",
+    "董秘电话": "company_secretary_phone",
+    "董秘邮箱": "company_secretary_email",
+    "行业分类": "industry",
+    "主办券商": "broker",
+    "增发对象": "additional_issuance_target",
+    "增发目的": "purpose_of_issuance"
+}
+
+# 犀牛之心-持股成本-做市商持股成本
+STOCK_BROKER_KEY_MAP = {
+    "做市商": "broker",
+    "初始库存": "initial_stock",
+    "初始价格": "initial_price"
+}
+
+# 犀牛之心-质押信息-质押企业详情
+STOCK_PLEDGE_DATA_KEY_MAP = {
+    "累计质押": "pledge_total",
+    "质押股东": "pledge_shareholders",
+    "质权人": "pledge_pledgee"
+}
+
+# 犀牛之心-质押信息-质押贷款记录
+STOCK_PLEDGE_LOAN_RECORD_KEY_MAP = {
+    "股东名称": "shareholder_name",
+    "质押日期": "pledge_date",
+    "贷款金额": "loan_amount",
+    "质权人": "pledgee",
+    "质押占总股比": "pledge_to_total_ratio",
+    "质押占所持股比": "pledge_to_equity_ratio",
+    "质押率": "pledge_rate",
+    "质押股数": "pledged_shares",
+    "质押起初日": "pledge_start_date",
+    "质押截止日": "pledge_end_date",
+    "质押说明": "pledge_description"
+}
+
+
+# 犀牛之心-研报
+STOCK_REPORT_KEY_MAP = {
+    "研报标题": "title",
+    "详情地址": "detail_url",
+    "发布日期": "publish_date"
 }

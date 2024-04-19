@@ -3,6 +3,7 @@
 @File    : neeq_stock.py
 @Date    : 2024-04-02
 """
+import json
 import re
 
 from parsel import Selector
@@ -622,6 +623,35 @@ def parse_finance_table(sel):
     return items
 
 
+def parse_fund_list(sel, english_key):
+    items = []
+
+    for title, main in zip(sel.css('.lc-title'), sel.css('.lc-main')):
+        fund_date = title.css('span:nth-child(1)::text').extract_first('').strip()
+        fund_type = title.css('span.fr::text').extract_first('').strip()
+
+        investor_list = parse_fund_table(main.css('table'))
+
+        item = {
+            '募资日期': fund_date,
+            '募资类型': fund_type,
+            '投资人列表': investor_list
+        }
+
+        for board_item in main.css('.boards .board-item'):
+            value = board_item.css('p::text').extract_first('').strip()
+            key = board_item.css('span::text').extract_first('').strip()
+
+            item[key] = value
+
+        items.append(item)
+
+    if english_key:
+        items = [convert_util.convert_key(config.STOCK_FUND_KEY_MAP, item) for item in items]
+
+    return items
+
+
 def get_stock_fund_list(stock_code, english_key=False, **kwargs):
     """
     犀牛之心-募资明细
@@ -660,31 +690,8 @@ def get_stock_fund_list(stock_code, english_key=False, **kwargs):
     res = request_util.get(url, **kwargs)
 
     sel = Selector(text=res.text)
-    items = []
-    for title, main in zip(sel.css('.lc-title'), sel.css('.lc-main')):
-        fund_date = title.css('span:nth-child(1)::text').extract_first('').strip()
-        fund_type = title.css('span.fr::text').extract_first('').strip()
 
-        investor_list = parse_fund_table(main.css('table'))
-
-        item = {
-            '募资日期': fund_date,
-            '募资类型': fund_type,
-            '投资人列表': investor_list
-        }
-
-        for board_item in main.css('.boards .board-item'):
-            value = board_item.css('p::text').extract_first('').strip()
-            key = board_item.css('span::text').extract_first('').strip()
-
-            item[key] = value
-
-        items.append(item)
-
-    if english_key:
-        items = [convert_util.convert_key(config.STOCK_FUND_KEY_MAP, item) for item in items]
-
-    return items
+    return parse_fund_list(sel, english_key)
 
 
 def parse_fund_table(sel: Selector):
@@ -881,8 +888,8 @@ def get_stock_notice_list(stock_code, page=1, **kwargs):
 
 def get_stock_survey(stock_code, english_key=False, **kwargs):
     """
-    犀牛之心-最新公告-定增计划
-    https://www.ipo3.com/company-show/stock-430577-tab-notice.html#notice2
+    犀牛之心-定增计划
+    https://www.ipo3.com/company-show/stock-430577-tab-survey.html#content
 
     :param page:
     :param stock_code:
@@ -938,3 +945,272 @@ def get_stock_survey(stock_code, english_key=False, **kwargs):
         item = convert_util.convert_key(config.STOCK_SURVEY_KEY_MAP, item)
 
     return item
+
+
+def get_stock_funded_list(stock_code, english_key=False, **kwargs):
+    """
+    犀牛之心-持股成本-投资者持股成本
+    https://www.ipo3.com/company-show/stock-430283-tab-funded.html#content
+
+    :param stock_code: str
+    :param english_key: bool
+    :param kwargs:
+    :return:
+    返回数据结构同 犀牛之心-募资明细 get_stock_fund_list
+    eg:
+    [
+      {
+        "募资日期": "2015年08月12日",
+        "募资类型": "正式",
+        "募集资金": "0.00",
+        "增发数量": "2,978.00万",
+        "增发价格": "2.020",
+        "投资人列表": [
+          {
+            "投资者": "武汉优众合益投资管理有限公司",
+            "类型": "网下机构投资者",
+            "是否为公司高管": "否",
+            "持股数": "1,678.00万",
+            "投资额（元）": "0.00",
+            "锁定状态": "无"
+          }
+        ],
+      }
+    ]
+    """
+
+    url = 'https://www.ipo3.com/company-show/stock-{stock_code}-tab-funded.html#content'.format(
+        stock_code=stock_code
+    )
+
+    logger.info("url: %s", url)
+
+    res = request_util.get(url, **kwargs)
+
+    sel = Selector(text=res.text)
+
+    return parse_fund_list(sel, english_key)
+
+
+def get_stock_broker_list(stock_code, english_key=False, **kwargs):
+    """
+    犀牛之心-持股成本-做市商持股成本
+    https://www.ipo3.com/company-show/stock-832586-tab-broker.html#content
+
+    :param stock_code: str
+    :param english_key: bool
+    :param kwargs:
+    :return:
+
+    eg:
+    [
+        {
+            "做市商": "中山证券",
+            "初始库存": "300000",
+            "初始价格": "10.00"
+        }
+    ]
+    """
+
+    url = 'https://www.ipo3.com/company-show/stock-{stock_code}-tab-broker.html#content'.format(
+        stock_code=stock_code
+    )
+
+    logger.info("url: %s", url)
+
+    res = request_util.get(url, **kwargs)
+
+    sel = Selector(text=res.text)
+    items = table_util.parse_table(sel.css('#content table'))
+
+    def handle_row(row):
+        for key, value in row.items():
+            row[key] = value.replace('-', '')
+
+        return row
+
+    items = [handle_row(item) for item in items]
+
+    if english_key:
+        items = [convert_util.convert_key(config.STOCK_BROKER_KEY_MAP, item) for item in items]
+
+    return items
+
+
+def get_stock_pledge_data(stock_code, english_key=False, **kwargs):
+    """
+    犀牛之心-质押信息-质押企业详情
+    https://www.ipo3.com/company-show/tab-pledge-stock_code-839826.html
+
+    :param stock_code: str
+    :param english_key: bool
+    :param kwargs:
+    :return:
+
+    eg:
+    {
+      "累计质押": "0万股",
+      "质押股东": [
+        {
+          "name": "不明确比例",
+          "value": 95.57
+        },
+        {
+          "name": "未质押比例",
+          "value": 4.43
+        }
+      ],
+      "质权人": [
+        {
+          "name": "不明确比例",
+          "value": 95.57
+        },
+        {
+          "name": "未质押比例",
+          "value": 4.43
+        }
+      ]
+    }
+    """
+
+    url = 'https://www.ipo3.com/company-show/tab-pledge-stock_code-{stock_code}.html'.format(
+        stock_code=stock_code
+    )
+
+    logger.info("url: %s", url)
+
+    res = request_util.get(url, **kwargs)
+
+    sel = Selector(text=res.text)
+
+    # 累计质押
+    pledge_total = sel.css('#pledge_total::attr(value)').extract_first()
+
+    # 质押股东
+    pledge_shareholders = sel.css('#pledge_shareholders::attr(value)').extract_first()
+    if pledge_shareholders:
+        pledge_shareholders = json.loads(pledge_shareholders)
+    else:
+        pledge_shareholders = []
+
+    # 质权人
+    pledge_pledgee = sel.css('#pledge_pledgee::attr(value)').extract_first()
+    if pledge_pledgee:
+        pledge_pledgee = json.loads(pledge_pledgee)
+    else:
+        pledge_pledgee = []
+
+    data = {
+        '累计质押': pledge_total,
+        '质押股东': pledge_shareholders,
+        '质权人': pledge_pledgee,
+    }
+
+    if english_key:
+        data = convert_util.convert_key(config.STOCK_PLEDGE_DATA_KEY_MAP, data)
+
+    return data
+
+
+def get_stock_pledge_loan_records(stock_code, english_key=False, **kwargs):
+    """
+    犀牛之心-质押信息-质押贷款记录
+    https://www.ipo3.com/company-show/tab-pledge-stock_code-839826.html
+
+    :param stock_code: str
+    :param english_key: bool
+    :param kwargs:
+    :return:
+
+    eg:
+    [
+       {
+        "股东名称": "张友君",
+        "质押日期": "2024-04-08",
+        "贷款金额": "",
+        "质权人": "杭州睦华企业管理合伙企业(有限合伙)",
+        "质押占总股比": "4.43%",
+        "质押占所持股比": "18.81%",
+        "质押率": "",
+        "质押股数": "238.00万",
+        "质押起初日": "2024-04-03",
+        "质押截止日": "",
+        "质押说明": "张友君质押股份给杭州睦华企业管理合伙企业(有限合伙)用于股权类投资"
+      }
+    ]
+    """
+
+    url = 'https://www.ipo3.com/company-show/tab-pledge-stock_code-{stock_code}.html'.format(
+        stock_code=stock_code
+    )
+
+    logger.info("url: %s", url)
+
+    res = request_util.get(url, **kwargs)
+
+    sel = Selector(text=res.text)
+
+    items = []
+    for table in sel.css('.pledge-table .contain-table'):
+        item = {}
+        for key, value in zip(table.css('.ct-th'), table.css('.ct-td')):
+            key = key.css("::text").extract_first('').strip()
+            value = value.css("::text").extract_first('').replace('--', '').strip()
+            item[key] = value
+
+        items.append(item)
+
+    if english_key:
+        items = [convert_util.convert_key(config.STOCK_PLEDGE_LOAN_RECORD_KEY_MAP, item) for item in items]
+
+    return items
+
+
+def get_stock_report_list(stock_code, english_key=False, **kwargs):
+    """
+    犀牛之心-研报
+    https://www.ipo3.com/company-show/stock-834082-tab-report.html#content
+
+    :param stock_code: str
+    :param english_key: bool
+    :param kwargs:
+    :return:
+
+    eg:
+    [
+       {
+        "研报标题": "中建信息：国内领先的ICT资源提供商，2020Q3归母净利润增长122%",
+        "详情地址": "https://www.ipo3.com/company-reported/id-5166.html",
+        "发布日期": "2020-11-04"
+      }
+    ]
+    """
+
+    url = 'https://www.ipo3.com/company-show/stock-{stock_code}-tab-report.html#content'.format(
+        stock_code=stock_code
+    )
+
+    logger.info("url: %s", url)
+
+    res = request_util.get(url, **kwargs)
+
+    sel = Selector(text=res.text)
+
+    items = []
+    for row in sel.css('#content .table-body .table-row'):
+        title = row.css(".title::attr(title)").extract_first('').strip()
+        href = row.css(".title::attr(href)").extract_first('').strip()
+        publish_date = row.css(".table-colrq::text").extract_first('').strip()
+
+        item = {
+            "研报标题": title,
+            "详情地址": url_util.url_join('https://www.ipo3.com/', href),
+            "发布日期": publish_date,
+        }
+
+        items.append(item)
+
+    if english_key:
+        items = [convert_util.convert_key(config.STOCK_REPORT_KEY_MAP, item) for item in items]
+
+    return items

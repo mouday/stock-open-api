@@ -85,3 +85,43 @@ class NeeqStockTest(unittest.TestCase):
     def test_get_stock_survey_to_english_key(self):
         res = neeq_stock.get_stock_survey('830936', english_key=True)
         json_util.dump_json(res)
+
+    def test_get_stock_funded(self):
+        res = neeq_stock.get_stock_funded_list('430283')
+        json_util.dump_json(res)
+
+    def test_get_stock_funded_to_english_key(self):
+        res = neeq_stock.get_stock_funded_list('430283', english_key=True)
+        json_util.dump_json(res)
+
+    def test_get_stock_broker(self):
+        res = neeq_stock.get_stock_broker_list('832586')
+        json_util.dump_json(res)
+
+    def test_get_stock_broker_to_english_key(self):
+        res = neeq_stock.get_stock_broker_list('832586', english_key=True)
+        json_util.dump_json(res)
+
+    def test_get_stock_pledge(self):
+        res = neeq_stock.get_stock_pledge_data('839826')
+        json_util.dump_json(res)
+
+    def test_get_stock_pledge_to_english_key(self):
+        res = neeq_stock.get_stock_pledge_data('839826', english_key=True)
+        json_util.dump_json(res)
+
+    def test_get_stock_pledge_loan_records(self):
+        res = neeq_stock.get_stock_pledge_loan_records('839826')
+        json_util.dump_json(res)
+
+    def test_get_stock_pledge_loan_records_to_english_key(self):
+        res = neeq_stock.get_stock_pledge_loan_records('839826', english_key=True)
+        json_util.dump_json(res)
+
+    def test_get_stock_report_list(self):
+        res = neeq_stock.get_stock_report_list('839826')
+        json_util.dump_json(res)
+
+    def test_get_stock_report_list_to_english_key(self):
+        res = neeq_stock.get_stock_report_list('839826', english_key=True)
+        json_util.dump_json(res)

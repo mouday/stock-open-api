@@ -120,6 +120,11 @@ if __name__ == '__main__':
 | [最新公告-大事提醒](https://www.ipo3.com/company-show/stock-430577-tab-notice.html#notice1) | api/ipo3/neeq_stock.get_stock_event_list |
 | [最新公告-最新公告](https://www.ipo3.com/company-show/stock-430577-tab-notice.html#notice2) | api/ipo3/neeq_stock.get_stock_notice_list |
 | [定增计划](https://www.ipo3.com/company-show/stock-430577-tab-survey.html#content) | api/ipo3/neeq_stock.get_stock_survey |
+| [持股成本-投资者持股成本](https://www.ipo3.com/company-show/stock-430283-tab-funded.html#content) | api/ipo3/neeq_stock.get_stock_funded_list |
+| [持股成本-做市商持股成本](https://www.ipo3.com/company-show/stock-832586-tab-broker.html#content) | api/ipo3/neeq_stock.get_stock_broker_list |
+| [质押信息-质押企业详情](https://www.ipo3.com/company-show/tab-pledge-stock_code-839826.html) | api/ipo3/neeq_stock.get_stock_pledge_data |
+| [质押信息-质押贷款记录](https://www.ipo3.com/company-show/tab-pledge-stock_code-839826.html) | api/ipo3/neeq_stock.get_stock_pledge_loan_records |
+| [研报](https://www.ipo3.com/company-show/stock-834082-tab-report.html#content) | api/ipo3/neeq_stock.get_stock_report_list |
 
 
 
