@@ -67,11 +67,14 @@ class NeeqStockTest(unittest.TestCase):
         json_util.dump_json(res)
 
     def test_get_stock_event_list_to_english_key(self):
-        res = neeq_stock.get_stock_event_list('830936', english_key=True)
+        stock_code = '870917'
+        res = neeq_stock.get_stock_event_list(stock_code=stock_code, english_key=True)
         json_util.dump_json(res)
 
     def test_get_stock_event_list(self):
-        res = neeq_stock.get_stock_event_list('830936')
+        # stock_code = '830936'
+        stock_code = '870917'
+        res = neeq_stock.get_stock_event_list(stock_code=stock_code)
         json_util.dump_json(res)
 
     def test_get_stock_notice_list(self):

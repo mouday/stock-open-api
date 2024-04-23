@@ -332,7 +332,7 @@ STOCK_TRADE_KEY_MAP = {
 }
 
 # 犀牛之心-最新公告-大事提醒
-STOCK_NOTICE_KEY_MAP = {
+STOCK_EVENT_KEY_MAP = {
     "事件日期": "event_date",
     "事件类型": "event_type",
     "事件标题": "title"

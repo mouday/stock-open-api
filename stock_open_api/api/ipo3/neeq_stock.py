@@ -820,7 +820,7 @@ def get_stock_event_list(stock_code, english_key=False, **kwargs):
         items.append(item)
 
     if english_key:
-        items = [convert_util.convert_key(config.STOCK_NOTICE_KEY_MAP, item) for item in items]
+        items = [convert_util.convert_key(config.STOCK_EVENT_KEY_MAP, item) for item in items]
 
     return items
 
