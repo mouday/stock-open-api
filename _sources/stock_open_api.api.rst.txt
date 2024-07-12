@@ -13,6 +13,7 @@ Subpackages
    stock_open_api.api.jqka
    stock_open_api.api.sse
    stock_open_api.api.szse
+   stock_open_api.api.xueqiu
 
 Module contents
 ---------------
