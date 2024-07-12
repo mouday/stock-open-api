@@ -35,7 +35,7 @@ test:
 # make install-require
 .PHONY: install-require
 install-require:
-	pip install -r requirements/development.txt
+	pip3 install -r requirements/development.txt
 
 # 快速提交
 # make fix
