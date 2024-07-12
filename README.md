@@ -126,6 +126,11 @@ if __name__ == '__main__':
 | [质押信息-质押贷款记录](https://www.ipo3.com/company-show/tab-pledge-stock_code-839826.html) | api/ipo3/neeq_stock.get_stock_pledge_loan_records |
 | [研报](https://www.ipo3.com/company-show/stock-834082-tab-report.html#content) | api/ipo3/neeq_stock.get_stock_report_list |
 
+数据源：雪球 [https://xueqiu.com/](https://xueqiu.com/)
+
+| 数据 | 方法名 |
+| - | - | 
+| [股票行情](https://xueqiu.com/S/SH600900) | api.xueqiu.xueqiu_market.get_stock_market |
 
 
 ## 升级记录 

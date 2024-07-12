@@ -10,6 +10,8 @@ from parsel import Selector
 
 def get_stock_market(stock_code, english_key=False):
     """
+    股票行情
+    
     eg: https://xueqiu.com/S/SH600733
     :param stock_code: SH600733
     :param english_key:
